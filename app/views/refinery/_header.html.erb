@@ -1,0 +1,11 @@
+<%= link_to refinery.root_path, class: "logo" do %>
+  <%= image_tag("logo.png", :alt => Refinery::Core.site_name, :class => "hover") %>
+  <!--[if (gt IE 8)|!(IE)]><!-->
+  <%= image_tag("logo-hover.png", :alt => Refinery::Core.site_name, :class => "default") %>
+  <!--<![endif]-->
+<% end -%>
+<%= render(:partial => "/refinery/menu", :locals => {
+             :dom_id => 'menu',
+             :css => 'menu'
+           }) %>
+<div id="gutter"></div>
