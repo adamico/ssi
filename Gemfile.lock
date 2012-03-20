@@ -40,6 +40,7 @@ GEM
       activerecord (>= 3.0.0)
     babosa (0.3.7)
     bcrypt-ruby (3.0.1)
+    bootstrap-sass (2.0.1)
     builder (3.0.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -179,6 +180,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass
   coffee-rails (~> 3.2.1)
   jquery-rails
   pg
