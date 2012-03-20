@@ -9,6 +9,10 @@ module Refinery
 
       belongs_to :vignlieu, :class_name => '::Refinery::Image'
 
+      def self.next
+        with_state(:active).first
+      end
+
       def self.previous
         with_state(:closed)
       end
