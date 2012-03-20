@@ -1,0 +1,45 @@
+es:
+  refinery:
+    plugins:
+      schools:
+        title: Schools
+#        article: masculino/femenino
+    schools:
+      admin:
+        schools:
+          actions:
+            create_new: Crear nuevo school
+            reorder: Reordenar schools
+            reorder_done: Reordenación de schools completada
+          records:
+            title: Schools
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay schools todavía. Pulsa en "Crear nuevo School" para crear tu primer school.
+          school:
+            view_live_html: Ver este school como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este school
+            delete: Borrar este school para siempre
+      schools:
+        show:
+          other: Otros schools
+  activerecord:
+    attributes:
+      'refinery/schools/school':
+        title: Title
+        starts_at: Starts At
+        ends_at: Ends At
+        place: Place
+        location: Location
+        vignlieu: Vignlieu
+        price: Price
+        deadline: Deadline
+        extranight: Extranight
+        theme: Theme
+        sub_theme: Sub Theme
+        organiser: Organiser
+        sub_organizer: Sub Organizer
+        award: Award
+        intro_program: Intro Program
+        publication: Publication
+        state: State
+        registrations_start_at: Registrations Start At

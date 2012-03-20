@@ -1,0 +1,25 @@
+<ul>
+  <% if ::Refinery::Schools::Admin::SchoolsController.searchable? %>
+    <li>
+      <%= render '/refinery/admin/search', :url => refinery.schools_admin_schools_path %>
+    </li>
+  <% end %>
+  <li>
+    <%= link_to t('.create_new'), refinery.new_schools_admin_school_path,
+                 :class => "add_icon" %>
+  </li>
+<% if !searching? && ::Refinery::Schools::Admin::SchoolsController.sortable? && ::Refinery::Schools::School.any? %>
+  <li>
+    <%= link_to t('.reorder', :what => "Schools"),
+                 refinery.schools_admin_schools_path,
+                 :id => "reorder_action",
+                 :class => "reorder_icon" %>
+
+    <%= link_to t('.reorder_done', :what => "Schools"),
+                 refinery.schools_admin_schools_path,
+                 :id => "reorder_action_done",
+                 :style => "display: none;",
+                 :class => "reorder_icon" %>
+  </li>
+<% end %>
+</ul>

@@ -1,0 +1,44 @@
+en:
+  refinery:
+    plugins:
+      schools:
+        title: Schools
+    schools:
+      admin:
+        schools:
+          actions:
+            create_new: Add New School
+            reorder: Reorder Schools
+            reorder_done: Done Reordering Schools
+          records:
+            title: Schools
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Schools yet. Click "Add New School" to add your first school.
+          school:
+            view_live_html: View this school live <br/><em>(opens in a new window)</em>
+            edit: Edit this school
+            delete: Remove this school forever
+      schools:
+        show:
+          other: Other Schools
+  activerecord:
+    attributes:
+      'refinery/schools/school':
+        title: Title
+        starts_at: Starts At
+        ends_at: Ends At
+        place: Place
+        location: Location
+        vignlieu: Vignlieu
+        price: Price
+        deadline: Deadline
+        extranight: Extranight
+        theme: Theme
+        sub_theme: Sub Theme
+        organiser: Organiser
+        sub_organizer: Sub Organizer
+        award: Award
+        intro_program: Intro Program
+        publication: Publication
+        state: State
+        registrations_start_at: Registrations Start At

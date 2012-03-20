@@ -3,10 +3,8 @@
 #
 # Examples:
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+#   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
+#   Mayor.create(:name => 'Emanuel', :city => cities.first)
 
 # Added by Refinery CMS Pages extension
 Refinery::Pages::Engine.load_seed
-
-Refinery::Schools::Engine.load_seed

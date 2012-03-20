@@ -1,0 +1,44 @@
+fr:
+  refinery:
+    plugins:
+      schools:
+        title: Schools
+    schools:
+      admin:
+        schools:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) School
+            reorder: Réordonner les Schools
+            reorder_done: Fin de réordonnancement des Schools
+          records:
+            title: Schools
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: 'Il n''y a actuellement aucun(e) School. Cliquer sur "Créer un(e) nouve(au/l/lle) School" pour créer votre premi(er/ère) school.'
+          school:
+            view_live_html: Voir ce(t/tte) school <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) school
+            delete: Supprimer définitivement ce(t/tte) school
+      schools:
+        show:
+          other: Autres Schools
+  activerecord:
+    attributes:
+      'refinery/schools/school':
+        title: Title
+        starts_at: Starts At
+        ends_at: Ends At
+        place: Place
+        location: Location
+        vignlieu: Vignlieu
+        price: Price
+        deadline: Deadline
+        extranight: Extranight
+        theme: Theme
+        sub_theme: Sub Theme
+        organiser: Organiser
+        sub_organizer: Sub Organizer
+        award: Award
+        intro_program: Intro Program
+        publication: Publication
+        state: State
+        registrations_start_at: Registrations Start At

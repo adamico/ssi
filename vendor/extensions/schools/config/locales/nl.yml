@@ -1,0 +1,44 @@
+nl:
+  refinery:
+    plugins:
+      schools:
+        title: Schools
+    schools:
+      admin:
+        schools:
+          actions:
+            create_new: Maak een nieuwe School
+            reorder: Wijzig de volgorde van de Schools
+            reorder_done: Klaar met het wijzingen van de volgorde van de Schools
+          records:
+            title: Schools
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Schools. Druk op 'Maak een nieuwe School' om de eerste aan te maken.
+          school:
+            view_live_html: Bekijk deze school op de website <br/><em>(opent een nieuw venster)</em>
+            edit: Bewerk deze school
+            delete: Verwijder deze school voor eeuwig
+      schools:
+        show:
+          other: Andere Schools
+  activerecord:
+    attributes:
+      'refinery/schools/school':
+        title: Title
+        starts_at: Starts At
+        ends_at: Ends At
+        place: Place
+        location: Location
+        vignlieu: Vignlieu
+        price: Price
+        deadline: Deadline
+        extranight: Extranight
+        theme: Theme
+        sub_theme: Sub Theme
+        organiser: Organiser
+        sub_organizer: Sub Organizer
+        award: Award
+        intro_program: Intro Program
+        publication: Publication
+        state: State
+        registrations_start_at: Registrations Start At

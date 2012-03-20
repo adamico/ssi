@@ -1,0 +1,44 @@
+nb:
+  refinery:
+    plugins:
+      schools:
+        title: Schools
+    schools:
+      admin:
+        schools:
+          actions:
+            create_new: Lag en ny School
+            reorder: Endre rekkefølgen på Schools
+            reorder_done: Ferdig å endre rekkefølgen Schools
+          records:
+            title: Schools
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Schools enda. Klikk på "Lag en ny School" for å legge til din første school.
+          school:
+            view_live_html: Vis hvordan denne school ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            edit: Rediger denne school
+            delete: Fjern denne school permanent
+      schools:
+        show:
+          other: Andre Schools
+  activerecord:
+    attributes:
+      'refinery/schools/school':
+        title: Title
+        starts_at: Starts At
+        ends_at: Ends At
+        place: Place
+        location: Location
+        vignlieu: Vignlieu
+        price: Price
+        deadline: Deadline
+        extranight: Extranight
+        theme: Theme
+        sub_theme: Sub Theme
+        organiser: Organiser
+        sub_organizer: Sub Organizer
+        award: Award
+        intro_program: Intro Program
+        publication: Publication
+        state: State
+        registrations_start_at: Registrations Start At

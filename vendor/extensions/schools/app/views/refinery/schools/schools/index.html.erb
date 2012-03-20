@@ -1,0 +1,19 @@
+<% content_for :body_content_left do %>
+  <% if @schools.any? -%>
+    <div id="schools">
+      <% @schools.each do |school| %>
+        <div class="school">
+          <div class="title"><%= school.title %></div>
+          <div class="when_and_where"><%= school.when_and_where %></div>
+          <div class="theme"><%= school.theme %></div>
+          <div class="publications"><%= raw school.publication %></div>
+        </div>
+      <% end %>
+      <%= will_paginate @schools %>
+    </div>
+  <% else %>
+    <p>No previous schools found.</p>
+  <% end -%>
+<% end %>
+
+<%= render '/refinery/content_page' %>
