@@ -1,8 +1,29 @@
 en:
   refinery:
     plugins:
+      events:
+        title: Events
       schools:
         title: Schools
+    events:
+      admin:
+        events:
+          actions:
+            create_new: Add New Event
+            reorder: Reorder Events
+            reorder_done: Done Reordering Events
+          records:
+            title: Events
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Events yet. Click "Add New Event" to add your
+              first event.
+          event:
+            view_live_html: View this event live <br/><em>(opens in a new window)</em>
+            edit: Edit this event
+            delete: Remove this event forever
+      events:
+        show:
+          other: Other Events
     schools:
       admin:
         schools:
@@ -13,7 +34,8 @@ en:
           records:
             title: Schools
             sorry_no_results: Sorry! There are no results found.
-            no_items_yet: There are no Schools yet. Click "Add New School" to add your first school.
+            no_items_yet: There are no Schools yet. Click "Add New School" to add
+              your first school.
           school:
             view_live_html: View this school live <br/><em>(opens in a new window)</em>
             edit: Edit this school
@@ -23,7 +45,11 @@ en:
           other: Other Schools
   activerecord:
     attributes:
-      'refinery/schools/school':
+      refinery/events/event:
+        title: Title
+        when: When
+        speaker: Speaker
+      refinery/schools/school:
         title: Title
         starts_at: Starts At
         ends_at: Ends At

@@ -1,8 +1,30 @@
 nb:
   refinery:
     plugins:
+      events:
+        title: Events
       schools:
         title: Schools
+    events:
+      admin:
+        events:
+          actions:
+            create_new: Lag en ny Event
+            reorder: Endre rekkefølgen på Events
+            reorder_done: Ferdig å endre rekkefølgen Events
+          records:
+            title: Events
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Events enda. Klikk på "Lag en ny Event" for
+              å legge til din første event.
+          event:
+            view_live_html: Vis hvordan denne event ser ut offentlig <br/><em>(åpner
+              i et nytt vindu)</em>
+            edit: Rediger denne event
+            delete: Fjern denne event permanent
+      events:
+        show:
+          other: Andre Events
     schools:
       admin:
         schools:
@@ -13,9 +35,11 @@ nb:
           records:
             title: Schools
             sorry_no_results: Beklager! Vi fant ikke noen resultater.
-            no_items_yet: Det er ingen Schools enda. Klikk på "Lag en ny School" for å legge til din første school.
+            no_items_yet: Det er ingen Schools enda. Klikk på "Lag en ny School" for
+              å legge til din første school.
           school:
-            view_live_html: Vis hvordan denne school ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            view_live_html: Vis hvordan denne school ser ut offentlig <br/><em>(åpner
+              i et nytt vindu)</em>
             edit: Rediger denne school
             delete: Fjern denne school permanent
       schools:
@@ -23,7 +47,11 @@ nb:
           other: Andre Schools
   activerecord:
     attributes:
-      'refinery/schools/school':
+      refinery/events/event:
+        title: Title
+        when: When
+        speaker: Speaker
+      refinery/schools/school:
         title: Title
         starts_at: Starts At
         ends_at: Ends At

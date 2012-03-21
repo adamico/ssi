@@ -8,6 +8,7 @@ module Refinery
       validates :title, :presence => true, :uniqueness => true
 
       belongs_to :vignlieu, :class_name => '::Refinery::Image'
+      has_many :events, :class_name => '::Refinery::Events::Event'
 
       def self.next
         with_state(:active).first

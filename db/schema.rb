@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120319134422) do
+ActiveRecord::Schema.define(:version => 20120320151734) do
+
+  create_table "refinery_events", :force => true do |t|
+    t.string   "title"
+    t.datetime "when"
+    t.string   "speaker"
+    t.integer  "position"
+    t.integer  "school_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "refinery_images", :force => true do |t|
     t.string   "image_mime_type"

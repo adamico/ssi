@@ -1,8 +1,30 @@
 nl:
   refinery:
     plugins:
+      events:
+        title: Events
       schools:
         title: Schools
+    events:
+      admin:
+        events:
+          actions:
+            create_new: Maak een nieuwe Event
+            reorder: Wijzig de volgorde van de Events
+            reorder_done: Klaar met het wijzingen van de volgorde van de Events
+          records:
+            title: Events
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Events. Druk op 'Maak een nieuwe Event'
+              om de eerste aan te maken.
+          event:
+            view_live_html: Bekijk deze event op de website <br/><em>(opent een nieuw
+              venster)</em>
+            edit: Bewerk deze event
+            delete: Verwijder deze event voor eeuwig
+      events:
+        show:
+          other: Andere Events
     schools:
       admin:
         schools:
@@ -13,9 +35,11 @@ nl:
           records:
             title: Schools
             sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
-            no_items_yet: Er zijn nog geen Schools. Druk op 'Maak een nieuwe School' om de eerste aan te maken.
+            no_items_yet: Er zijn nog geen Schools. Druk op 'Maak een nieuwe School'
+              om de eerste aan te maken.
           school:
-            view_live_html: Bekijk deze school op de website <br/><em>(opent een nieuw venster)</em>
+            view_live_html: Bekijk deze school op de website <br/><em>(opent een nieuw
+              venster)</em>
             edit: Bewerk deze school
             delete: Verwijder deze school voor eeuwig
       schools:
@@ -23,7 +47,11 @@ nl:
           other: Andere Schools
   activerecord:
     attributes:
-      'refinery/schools/school':
+      refinery/events/event:
+        title: Title
+        when: When
+        speaker: Speaker
+      refinery/schools/school:
         title: Title
         starts_at: Starts At
         ends_at: Ends At

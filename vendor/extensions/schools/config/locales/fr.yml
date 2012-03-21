@@ -1,8 +1,29 @@
 fr:
   refinery:
     plugins:
+      events:
+        title: Events
       schools:
         title: Schools
+    events:
+      admin:
+        events:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Event
+            reorder: Réordonner les Events
+            reorder_done: Fin de réordonnancement des Events
+          records:
+            title: Events
+            sorry_no_results: Désolé ! Aucun résultat.
+            no_items_yet: Il n'y a actuellement aucun(e) Event. Cliquer sur "Créer
+              un(e) nouve(au/l/lle) Event" pour créer votre premi(er/ère) event.
+          event:
+            view_live_html: Voir ce(t/tte) event <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) event
+            delete: Supprimer définitivement ce(t/tte) event
+      events:
+        show:
+          other: Autres Events
     schools:
       admin:
         schools:
@@ -12,8 +33,9 @@ fr:
             reorder_done: Fin de réordonnancement des Schools
           records:
             title: Schools
-            sorry_no_results: "Désolé ! Aucun résultat."
-            no_items_yet: 'Il n''y a actuellement aucun(e) School. Cliquer sur "Créer un(e) nouve(au/l/lle) School" pour créer votre premi(er/ère) school.'
+            sorry_no_results: Désolé ! Aucun résultat.
+            no_items_yet: Il n'y a actuellement aucun(e) School. Cliquer sur "Créer
+              un(e) nouve(au/l/lle) School" pour créer votre premi(er/ère) school.
           school:
             view_live_html: Voir ce(t/tte) school <br/><em>(Ouvre une nouvelle fenêtre)</em>
             edit: Modifier ce(t/tte) school
@@ -23,7 +45,11 @@ fr:
           other: Autres Schools
   activerecord:
     attributes:
-      'refinery/schools/school':
+      refinery/events/event:
+        title: Title
+        when: When
+        speaker: Speaker
+      refinery/schools/school:
         title: Title
         starts_at: Starts At
         ends_at: Ends At
