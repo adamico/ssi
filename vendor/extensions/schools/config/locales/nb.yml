@@ -1,10 +1,32 @@
 nb:
   refinery:
     plugins:
+      registrations:
+        title: Registrations
       events:
         title: Events
       schools:
         title: Schools
+    registrations:
+      admin:
+        registrations:
+          actions:
+            create_new: Lag en ny Registration
+            reorder: Endre rekkefølgen på Registrations
+            reorder_done: Ferdig å endre rekkefølgen Registrations
+          records:
+            title: Registrations
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Registrations enda. Klikk på "Lag en ny Registration"
+              for å legge til din første registration.
+          registration:
+            view_live_html: Vis hvordan denne registration ser ut offentlig <br/><em>(åpner
+              i et nytt vindu)</em>
+            edit: Rediger denne registration
+            delete: Fjern denne registration permanent
+      registrations:
+        show:
+          other: Andre Registrations
     events:
       admin:
         events:
@@ -47,6 +69,27 @@ nb:
           other: Andre Schools
   activerecord:
     attributes:
+      refinery/registrations/registration:
+        surname: Surname
+        first_name: First Name
+        title: Title
+        company: Company
+        address: Address
+        city: City
+        zip: Zip
+        country: Country
+        phone: Phone
+        fax: Fax
+        email: Email
+        arrival: Arrival
+        departure: Departure
+        accompagne: Accompagne
+        ip: Ip
+        payment: Payment
+        amount: Amount
+        payment_date: Payment Date
+        school_id: School
+        state: State
       refinery/events/event:
         title: Title
         when: When

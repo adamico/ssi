@@ -9,7 +9,7 @@ class CreateSchoolsSchools < ActiveRecord::Migration
       t.string :place
       t.string :location
       t.integer :vignlieu_id
-      t.decimal :price
+      t.integer :price
       t.date :deadline
       t.text :extranight
       t.string :theme

@@ -1,10 +1,32 @@
 es:
   refinery:
     plugins:
+      registrations:
+        title: Registrations
       events:
         title: Events
       schools:
         title: Schools
+    registrations:
+      admin:
+        registrations:
+          actions:
+            create_new: Crear nuevo registration
+            reorder: Reordenar registrations
+            reorder_done: Reordenación de registrations completada
+          records:
+            title: Registrations
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay registrations todavía. Pulsa en "Crear nuevo Registration"
+              para crear tu primer registration.
+          registration:
+            view_live_html: Ver este registration como abierto al público <br/><em>(abre
+              en ventana nueva)</em>
+            edit: Editar este registration
+            delete: Borrar este registration para siempre
+      registrations:
+        show:
+          other: Otros registrations
     events:
       admin:
         events:
@@ -47,6 +69,27 @@ es:
           other: Otros schools
   activerecord:
     attributes:
+      refinery/registrations/registration:
+        surname: Surname
+        first_name: First Name
+        title: Title
+        company: Company
+        address: Address
+        city: City
+        zip: Zip
+        country: Country
+        phone: Phone
+        fax: Fax
+        email: Email
+        arrival: Arrival
+        departure: Departure
+        accompagne: Accompagne
+        ip: Ip
+        payment: Payment
+        amount: Amount
+        payment_date: Payment Date
+        school_id: School
+        state: State
       refinery/events/event:
         title: Title
         when: When

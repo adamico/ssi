@@ -1,10 +1,32 @@
 nl:
   refinery:
     plugins:
+      registrations:
+        title: Registrations
       events:
         title: Events
       schools:
         title: Schools
+    registrations:
+      admin:
+        registrations:
+          actions:
+            create_new: Maak een nieuwe Registration
+            reorder: Wijzig de volgorde van de Registrations
+            reorder_done: Klaar met het wijzingen van de volgorde van de Registrations
+          records:
+            title: Registrations
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Registrations. Druk op 'Maak een nieuwe
+              Registration' om de eerste aan te maken.
+          registration:
+            view_live_html: Bekijk deze registration op de website <br/><em>(opent
+              een nieuw venster)</em>
+            edit: Bewerk deze registration
+            delete: Verwijder deze registration voor eeuwig
+      registrations:
+        show:
+          other: Andere Registrations
     events:
       admin:
         events:
@@ -47,6 +69,27 @@ nl:
           other: Andere Schools
   activerecord:
     attributes:
+      refinery/registrations/registration:
+        surname: Surname
+        first_name: First Name
+        title: Title
+        company: Company
+        address: Address
+        city: City
+        zip: Zip
+        country: Country
+        phone: Phone
+        fax: Fax
+        email: Email
+        arrival: Arrival
+        departure: Departure
+        accompagne: Accompagne
+        ip: Ip
+        payment: Payment
+        amount: Amount
+        payment_date: Payment Date
+        school_id: School
+        state: State
       refinery/events/event:
         title: Title
         when: When

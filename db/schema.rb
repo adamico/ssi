@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120320151734) do
+ActiveRecord::Schema.define(:version => 20120321165548) do
 
   create_table "refinery_events", :force => true do |t|
     t.string   "title"
@@ -97,6 +97,32 @@ ActiveRecord::Schema.define(:version => 20120320151734) do
   add_index "refinery_pages", ["parent_id"], :name => "index_refinery_pages_on_parent_id"
   add_index "refinery_pages", ["rgt"], :name => "index_refinery_pages_on_rgt"
 
+  create_table "refinery_registrations", :force => true do |t|
+    t.string   "surname"
+    t.string   "first_name"
+    t.string   "title"
+    t.string   "company"
+    t.string   "address"
+    t.string   "city"
+    t.string   "zip"
+    t.string   "country"
+    t.string   "phone"
+    t.string   "fax"
+    t.string   "email"
+    t.date     "arrival"
+    t.date     "departure"
+    t.string   "accompagne"
+    t.string   "ip"
+    t.string   "payment"
+    t.integer  "amount"
+    t.string   "payment_date"
+    t.integer  "school_id"
+    t.string   "state"
+    t.integer  "position"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "refinery_resources", :force => true do |t|
     t.string   "file_mime_type"
     t.string   "file_name"
@@ -126,7 +152,7 @@ ActiveRecord::Schema.define(:version => 20120320151734) do
     t.string   "place"
     t.string   "location"
     t.integer  "vignlieu_id"
-    t.decimal  "price"
+    t.integer  "price"
     t.date     "deadline"
     t.text     "extranight"
     t.string   "theme"

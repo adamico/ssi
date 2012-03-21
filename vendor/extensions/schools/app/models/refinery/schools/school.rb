@@ -1,3 +1,4 @@
+# encoding: UTF-8
 module Refinery
   module Schools
     class School < Refinery::Core::BaseModel
@@ -9,6 +10,7 @@ module Refinery
 
       belongs_to :vignlieu, :class_name => '::Refinery::Image'
       has_many :events, :class_name => '::Refinery::Events::Event'
+      has_many :registrations, :class_name => '::Refinery::Registrations::Registration'
 
       def short_title
         title.split(" ").first + " school"
@@ -46,6 +48,10 @@ module Refinery
 
       def period
         "#{starts_at.day}-#{ends_at.day} #{starts_at.strftime'%B'} #{starts_at.year}"
+      end
+
+      def formatted_price
+        (price / 100).to_s + " €"
       end
 
       # state machines
