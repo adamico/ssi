@@ -1,0 +1,24 @@
+span.add_events, span.state {
+  text-align: right;
+  line-height: 28px;
+}
+
+span.add_events {
+  position: absolute;
+  top: 3px;
+  right: 120px;
+}
+
+span.state {
+  position: absolute;
+  top: 3px;
+  right: 240px;
+}
+
+span.state form {
+  display: inline;
+}
+
+span.state form label {
+  display: inline;
+}

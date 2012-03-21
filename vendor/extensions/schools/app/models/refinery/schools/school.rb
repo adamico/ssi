@@ -10,6 +10,10 @@ module Refinery
       belongs_to :vignlieu, :class_name => '::Refinery::Image'
       has_many :events, :class_name => '::Refinery::Events::Event'
 
+      def short_title
+        title.split(" ").first + " school"
+      end
+
       def self.next
         with_state(:active).first
       end
