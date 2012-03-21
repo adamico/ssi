@@ -1,8 +1,8 @@
 <li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(event) -%>">
-  <span class='title'>
-    <%= event.title %>
-
-  </span>
+  <span class='school'><%= event.day_month %></span>
+  <span class='event_time'><%= event.time %></span>
+  <span class='event_title'><%= raw event.title.truncate(60) %></span>
+  <span class='speaker'> - (<%= event.speaker %>)</span>
   <span class='actions'>
     
     <%= link_to refinery_icon_tag("application_edit.png"), refinery.edit_events_admin_event_path(event),

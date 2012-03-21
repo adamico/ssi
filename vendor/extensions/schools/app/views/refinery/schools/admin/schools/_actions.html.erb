@@ -10,7 +10,7 @@
   </li>
   <% if @next_school %>
     <li>
-      <%= link_to refinery.new_events_admin_event_path(:school => @next_school), class: "add_icon" do %>
+      <%= link_to refinery.new_events_admin_event_path, class: "add_icon" do %>
         Add Events for <%= @next_school.short_title %>
       <% end -%>
     </li>
