@@ -10,6 +10,18 @@
   <span class="registration_amount">
     <%= registration.formatted_amount %>
   </span>
+  <span class="registration_state">
+    <%= registration.human_state_name %>
+    <% if registration.state_transitions.any? -%>
+      <%= form_for [refinery, :registrations_admin, registration] do |f| -%>
+        <%= f.label "=>" -%>
+        <%= f.collection_select :state_event,
+          registration.state_transitions, :event, :human_to_name, {},
+          {:style => "display:none;" } -%>
+        <%= f.submit registration.state_transitions.first.event.to_s.humanize %>
+      <% end -%>
+    <% end -%>
+  </span>
   <span class='actions'>
     
     <%= link_to refinery_icon_tag("application_edit.png"), refinery.edit_registrations_admin_registration_path(registration),

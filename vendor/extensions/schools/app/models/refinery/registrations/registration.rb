@@ -19,6 +19,17 @@ module Refinery
       def title_with_name
         [self.try(:title), first_name, surname].join(" ")
       end
+
+      STATES = %w(pending payed refunded)
+
+      state_machine :initial => :pending do
+        event :accept do
+          transition :pending => :payed
+        end
+        event :refund do
+          transition :payed => :refunded
+        end
+      end
     end
   end
 end
