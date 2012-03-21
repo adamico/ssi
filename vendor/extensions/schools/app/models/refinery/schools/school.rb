@@ -18,6 +18,14 @@ module Refinery
         with_state(:active).first
       end
 
+      def self.imminent_or_next
+        self.next || self.imminent
+      end
+
+      def self.imminent
+        with_state(:imminent).last
+      end
+
       def self.previous
         with_state(:closed)
       end

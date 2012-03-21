@@ -1,6 +1,6 @@
 Refinery::Core::Engine.routes.append do
 
-  get "/program" => "schools/schools#next"
+  get "/program" => "schools/schools#show"
   get "/previous" => "schools/schools#index"
 
   # Frontend routes

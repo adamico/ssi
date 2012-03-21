@@ -348,6 +348,7 @@ body.login {
   input.larger {
     background: image_url('refinery/text_field_background.png') repeat-x white;
     height: 31px;
+    line-height: 31px;
   }
   input.larger:focus {
     background-position: 0px -41px;
@@ -800,6 +801,7 @@ label.stripped {
 }
 .larger {
   font-size: 200%;
+  height: 31px !important;
 }
 .brown_border {
   border: 1px solid #99998B;
