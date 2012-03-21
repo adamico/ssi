@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20120320151734) do
 
   create_table "refinery_events", :force => true do |t|
     t.string   "title"
-    t.datetime "when"
+    t.datetime "starts_at"
     t.string   "speaker"
     t.integer  "position"
     t.integer  "school_id"

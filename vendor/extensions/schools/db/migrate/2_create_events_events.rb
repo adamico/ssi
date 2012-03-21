@@ -3,7 +3,7 @@ class CreateEventsEvents < ActiveRecord::Migration
   def up
     create_table :refinery_events do |t|
       t.string :title
-      t.datetime :when
+      t.datetime :starts_at
       t.string :speaker
       t.integer :position
       t.integer :school_id
