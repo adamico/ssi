@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120321165548) do
+ActiveRecord::Schema.define(:version => 20120323150102) do
 
   create_table "refinery_events", :force => true do |t|
     t.string   "title"
@@ -33,6 +33,22 @@ ActiveRecord::Schema.define(:version => 20120321165548) do
     t.string   "image_ext"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "refinery_link_categories", :force => true do |t|
+    t.string   "title"
+    t.integer  "position"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "refinery_links", :force => true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.integer  "link_category_id"
+    t.integer  "position"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "refinery_page_part_translations", :force => true do |t|

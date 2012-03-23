@@ -1,0 +1,25 @@
+<ul>
+  <% if ::Refinery::LinkCategories::Admin::LinkCategoriesController.searchable? %>
+    <li>
+      <%= render '/refinery/admin/search', :url => refinery.link_categories_admin_link_categories_path %>
+    </li>
+  <% end %>
+  <li>
+    <%= link_to t('.create_new'), refinery.new_link_categories_admin_link_category_path,
+                 :class => "add_icon" %>
+  </li>
+<% if !searching? && ::Refinery::LinkCategories::Admin::LinkCategoriesController.sortable? && ::Refinery::LinkCategories::LinkCategory.any? %>
+  <li>
+    <%= link_to t('.reorder', :what => "Link Categories"),
+                 refinery.link_categories_admin_link_categories_path,
+                 :id => "reorder_action",
+                 :class => "reorder_icon" %>
+
+    <%= link_to t('.reorder_done', :what => "Link Categories"),
+                 refinery.link_categories_admin_link_categories_path,
+                 :id => "reorder_action_done",
+                 :style => "display: none;",
+                 :class => "reorder_icon" %>
+  </li>
+<% end %>
+</ul>

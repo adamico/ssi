@@ -1,0 +1,54 @@
+en:
+  refinery:
+    plugins:
+      link_categories:
+        title: Link Categories
+      links:
+        title: Links
+    link_categories:
+      admin:
+        link_categories:
+          actions:
+            create_new: Add New Link Category
+            reorder: Reorder Link Categories
+            reorder_done: Done Reordering Link Categories
+          records:
+            title: Link Categories
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Link Categories yet. Click "Add New Link Category"
+              to add your first link category.
+          link_category:
+            view_live_html: View this link category live <br/><em>(opens in a new
+              window)</em>
+            edit: Edit this link category
+            delete: Remove this link category forever
+      link_categories:
+        show:
+          other: Other Link Categories
+    links:
+      admin:
+        links:
+          actions:
+            create_new: Add New Link
+            reorder: Reorder Links
+            reorder_done: Done Reordering Links
+          records:
+            title: Links
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Links yet. Click "Add New Link" to add your
+              first link.
+          link:
+            view_live_html: View this link live <br/><em>(opens in a new window)</em>
+            edit: Edit this link
+            delete: Remove this link forever
+      links:
+        show:
+          other: Other Links
+  activerecord:
+    attributes:
+      refinery/link_categories/link_category:
+        title: Title
+      refinery/links/link:
+        title: Title
+        url: Url
+        link_category_id: Link Category

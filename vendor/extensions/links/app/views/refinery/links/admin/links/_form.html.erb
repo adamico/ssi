@@ -1,0 +1,29 @@
+<%= form_for [refinery, :links_admin, @link] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @link,
+              :include_object_name => true %>
+
+  
+  <div class='field'>
+    <%= f.label :title -%>
+    <%= f.text_field :title, :class => 'larger widest'  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :url -%>
+    <%= f.text_field :url, class: "widest"  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :link_category_id -%>
+    <%= f.collection_select :link_category_id, ::Refinery::LinkCategories::LinkCategory.all, :id, :title, {include_blank: true} -%>
+
+  </div>
+  
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.links.admin.links.link'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @link.title) %>
+<% end -%>

@@ -1,0 +1,55 @@
+nl:
+  refinery:
+    plugins:
+      link_categories:
+        title: Link Categories
+      links:
+        title: Links
+    link_categories:
+      admin:
+        link_categories:
+          actions:
+            create_new: Maak een nieuwe Link Category
+            reorder: Wijzig de volgorde van de Link Categories
+            reorder_done: Klaar met het wijzingen van de volgorde van de Link Categories
+          records:
+            title: Link Categories
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Link Categories. Druk op 'Maak een nieuwe
+              Link Category' om de eerste aan te maken.
+          link_category:
+            view_live_html: Bekijk deze link category op de website <br/><em>(opent
+              een nieuw venster)</em>
+            edit: Bewerk deze link category
+            delete: Verwijder deze link category voor eeuwig
+      link_categories:
+        show:
+          other: Andere Link Categories
+    links:
+      admin:
+        links:
+          actions:
+            create_new: Maak een nieuwe Link
+            reorder: Wijzig de volgorde van de Links
+            reorder_done: Klaar met het wijzingen van de volgorde van de Links
+          records:
+            title: Links
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Links. Druk op 'Maak een nieuwe Link' om
+              de eerste aan te maken.
+          link:
+            view_live_html: Bekijk deze link op de website <br/><em>(opent een nieuw
+              venster)</em>
+            edit: Bewerk deze link
+            delete: Verwijder deze link voor eeuwig
+      links:
+        show:
+          other: Andere Links
+  activerecord:
+    attributes:
+      refinery/link_categories/link_category:
+        title: Title
+      refinery/links/link:
+        title: Title
+        url: Url
+        link_category_id: Link Category
