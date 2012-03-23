@@ -13,6 +13,7 @@ end
 
 gem 'jquery-rails'
 gem "state_machine"
+gem 'humanizer'
 
 group :development, :test do
   gem 'refinerycms-testing', '~> 2.0.0'

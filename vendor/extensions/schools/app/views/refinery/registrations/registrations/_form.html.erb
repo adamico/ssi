@@ -1,0 +1,62 @@
+<section>
+  <h4 class="title"><%= school.title %></h4>
+  <h4 class="theme"><%= school.theme %></h4>
+</section>
+<section>
+  <div class="vignette_and_gmaps">
+    <%= image_fu school.vignlieu, "128x128" %>
+    <% require 'uri'
+      location = URI.escape(school.location)
+    %>
+    <%= link_to image_tag("http://maps.google.com/maps/api/staticmap?size=128x128&sensor=false&zoom=15&markers=#{school.latitude}%2C#{school.longitude}"), "http://maps.google.com/maps?q=#{location}&z=14", :target => "_blank" %>
+  </div>
+  <p class="registration_fee"><b>REGISTRATION FEE : <%= school.formatted_price %> €</b> <span class="price_without_vat">(<%= school.price_without_vat %> € + VAT 19.6%)</span></p>
+  <p class="deadline">DEADLINE FOR REGISTRATION : <%= l school.deadline, :format => :long %>
+  <%= raw school.extranight %>
+</section>
+
+<%= simple_form_for [refinery, :registrations, registration], html: {class: "form-horizontal registration"} do |f| %>
+  <%= f.input :school_id, as: :hidden %>
+  <%= f.input :amount, as: :hidden %>
+  <div class="control-group">
+    <%= f.label :title, "Name", class: "control-label" %>
+    <div class="controls inline">
+      <%= f.text_field :title, :placeholder => "Title", :autofocus => true, class: "span1" %>
+      <%= f.text_field :surname, :placeholder => "Surname" %>
+      <%= f.text_field :first_name, :placeholder => "First Name" %>
+    </div>
+  </div>
+  <%= f.input :company, input_html: {class: "span4"} %>
+  <%= f.input :address, input_html: {class: "span4"} %>
+  <div class="control-group">
+    <%= f.label "Address 2", class: "control-label" %>
+    <div class="controls inline">
+      <%= f.text_field :city, :placeholder => "City", class: "span3" %>
+      <%= f.text_field :zip, :placeholder => "Zip Code", class: "input-mini" %>
+    </div>
+  </div>
+  <%= f.input :country %>
+  <div class="control-group">
+    <%= f.label "Telephone/Fax", class: "control-label" %>
+    <div class="controls inline">
+      <%= f.text_field :phone, type: "phone", placeholder: "Telephone"  %>
+      <%= f.text_field :fax, type: "phone", placeholder: "Fax" %>
+    </div>
+  </div>
+
+  <%= f.input :email, input_html: {:placeholder => "me@example.com"} %>
+  <div class="control-group">
+    <%= f.label "Attend period", class: "control-label" %>
+    <div class="controls inline">
+      <%= f.text_field :arrival, :placeholder => "Arrival" %>
+      <%= f.text_field :departure, :placeholder => "Departure" %>
+    </div>
+  </div>
+  <%= f.input :accompagne, label: "Accompanying person", input_html: {:placeholder => "Enter name if relevant"} %>
+  <%= f.input :payment, label: "Payment by", collection: ::Refinery::Registrations::Registration::PAYMENT_METHODS %>
+  <%= f.input :humanizer_answer, label: registration.humanizer_question, input_html: {:placeholder => "Enter the answer here"} %>
+  <%= f.input :humanizer_question_id, as: :hidden %>
+  <div class= "form-actions">
+    <%= f.button :submit, "Submit", class: "btn-success" %>
+  </div>
+<% end %>

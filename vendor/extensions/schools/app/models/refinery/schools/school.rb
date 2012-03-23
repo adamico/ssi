@@ -32,6 +32,10 @@ module Refinery
         with_state(:closed)
       end
 
+      def price_without_vat
+        (price / 100 / 1.196).round(2)
+      end
+
       def when_and_where
         if cancelled?
           "CANCELLED"

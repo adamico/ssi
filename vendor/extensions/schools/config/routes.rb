@@ -2,10 +2,20 @@ Refinery::Core::Engine.routes.append do
 
   get "/program" => "schools/schools#show"
   get "/previous" => "schools/schools#index"
+  get '/registration' => 'registrations/registrations#new'
+
+  get '/payment_callback' => "registrations/paybox#ipn"
+  get '/payment_accepted' => "registrations/paybox#accepted"
+  get '/payment_refused' => "registrations/paybox#refused"
+  get '/payment_canceled' => "registrations/paybox#canceled"
 
   # Frontend routes
   namespace :schools do
     resources :schools, :path => '', :only => [:index, :show]
+  end
+
+  namespace :registrations do
+    resources :registrations, :path => '', :only => [:new, :create, :edit, :update]
   end
 
   # Admin routes
@@ -35,7 +45,7 @@ Refinery::Core::Engine.routes.append do
   # Admin routes
   namespace :registrations, :path => '' do
     namespace :admin, :path => 'refinery' do
-      resources :registrations, :except => :show do
+      resources :registrations, :except => [:show, :new, :create] do
         collection do
           post :update_positions
         end

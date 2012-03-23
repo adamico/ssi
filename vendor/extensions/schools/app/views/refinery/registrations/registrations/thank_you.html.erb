@@ -1,0 +1,15 @@
+<% content_for :body_content_left do %>
+  <p>Thank you for registering, Dear <strong><%= @registration.title_with_name %></strong>.</p>
+  <p>This registration has been filed with the <strong>number #<%= @registration.id %></strong>. To finalize the registration process you have to provide a valid payment means.</p>
+  <% case @registration.payment
+    when "check" -%>
+    <%= render 'check', registration: @registration %>
+  <% when "bank transfer" -%>
+    <%= render 'bank_transfer', registration: @registration %>
+  <% else %>
+    <%= render 'paybox', registration: @registration %>
+  <% end -%>
+<% end -%>
+
+<%= render "/refinery/content_page" %>
+

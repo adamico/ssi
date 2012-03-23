@@ -51,3 +51,7 @@ gem 'refinerycms-i18n',   '~> 2.0.0'
 #  gem 'refinerycms-page-images', '~> 2.0.0'
 
 gem 'refinerycms-schools', :path => 'vendor/extensions'
+gem 'humanizer'
+gem 'simple_form'
+gem 'country_select'
+gem "paybox_system"

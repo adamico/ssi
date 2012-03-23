@@ -17,8 +17,7 @@ en:
           records:
             title: Registrations
             sorry_no_results: Sorry! There are no results found.
-            no_items_yet: There are no Registrations yet. Click "Add New Registration"
-              to add your first registration.
+            no_items_yet: There are no Registrations yet.
           registration:
             view_live_html: View this registration live <br/><em>(opens in a new window)</em>
             edit: Edit this registration

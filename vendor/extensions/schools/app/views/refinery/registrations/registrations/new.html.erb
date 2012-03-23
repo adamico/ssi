@@ -1,0 +1,20 @@
+<% content_for :body_content_title do %>
+  Registration Form
+<% end -%>
+
+<% content_for :body_content_left do %>
+  <div class='registrations'>
+    <% if @registration -%>
+      <% if @school.active? -%>
+        <%= render 'form', registration: @registration, school: @school %>
+      <% else -%>
+        <h3>Registrations are not yet open.</h2>
+      <% end -%>
+    <% else -%>
+      <h3>Registrations are closed.</h2>
+    <% end -%>
+  </div>
+<% end %>
+
+<%= render "/refinery/content_page" %>
+

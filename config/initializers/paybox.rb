@@ -1,0 +1,7 @@
+require "paybox_system/rails/helpers"
+
+paybox_key = Rails.env.development? ? "0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF" : ENV['PAYBOX_SECRET']
+
+Paybox::System::Base.config = {
+  secret_key: paybox_key
+}
