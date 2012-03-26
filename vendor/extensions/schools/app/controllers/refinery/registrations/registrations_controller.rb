@@ -43,7 +43,7 @@ module Refinery
       end
 
       def success
-        #RegistrationMailer.registration_confirmation(@registration).deliver
+        RegistrationMailer.registration_confirmation(@registration).deliver
         @page = ::Refinery::Page.where(link_url: "/thank_you").first
         render 'thank_you'
       end

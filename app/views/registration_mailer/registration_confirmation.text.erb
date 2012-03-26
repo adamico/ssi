@@ -1,0 +1,26 @@
+Dear <%= @title %>,
+
+Thank you for registering to the <%= @school.title %>.
+
+Please verify the details you provided with your inscription :
+
+Surname : <%= @registration.surname %>
+First name : <%= @registration.try(:first_name) %>
+Title : <%= @registration.try(:title) %>
+Company : <%= @registration.try(:company) %>
+Address : <%= @registration.try(:address) %>
+City : <%= @registration.try(:city) %>
+Zip : <%= @registration.try(:zip) %>
+Country : <%= @registration.try(:country) %>
+Phone : <%= @registration.try(:phone) %>
+Fax : <%= @registration.try(:fax) %>
+Email : <%= @registration.try(:email) %>
+Arrival : <%= l @registration.arrival, :format => :long %>
+Departure : <%= l @registration.departure, :format => :long %>
+Accompanying person : <%= @registration.try(:accompagne) %>
+Payment by : <%= @registration.payment %>
+Amount payed : <%= @registration.formatted_amount %>
+
+If any of these informations are incorrect, please send us an email to: contact@school-immunotoxicology.org.
+
+Have a nice day and see you soon at the <%= @school.title %>, on <%= l @school.starts_at, :format => :long %>.

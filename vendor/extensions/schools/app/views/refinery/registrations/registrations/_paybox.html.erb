@@ -1,4 +1,4 @@
-<p>You've chosen the <strong>online payment method</strong>. By pressing the 'checkout' button below, you'll be redirected to our secure online payment system.</p>
+<p>You've chosen the <strong>online payment method</strong>. By pressing the button below, you'll be redirected to our secure online payment system.</p>
 
 <form method="POST" action="https://preprod-tpeweb.paybox.com/cgi/MYchoix_pagepaiement.cgi">
   <%= paybox_hidden_fields :site => 1999888, :rang => 32, :identifiant => 2,
@@ -15,7 +15,7 @@
     :annule => refinery.payment_canceled_url,
     :refuse => refinery.payment_refused_url,
     :effectue => refinery.payment_accepted_url %>
-    <input type=submit value='Checkout'>
+    <input type=submit value='Proceed to Online Payment' class="btn btn-primary btn-large">
 </form>
 
 <%= render 'change', registration: registration %>
