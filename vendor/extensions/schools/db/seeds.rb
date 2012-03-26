@@ -23,7 +23,7 @@ if defined?(::Refinery::Page) && ::Refinery::Page.where(:link_url => index_url).
   index_page.parts.save!
 end
 
-if defined?(::Refinery::Page) && ::Refinery::Page.where(:title => "Next School").empty?
+if defined?(::Refinery::Page)
   show_page = ::Refinery::Page.create(
     :title => 'Next School',
     :link_url => "",
