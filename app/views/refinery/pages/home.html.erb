@@ -10,7 +10,7 @@
           <h2>No school registered in database, yet.</h2>
         <% end -%>
         <aside>
-          <%= link_to "See the Current Program", "/program", class: "btn btn-info btn-large" if @school %>
+          <%= link_to "See the Current Program", "/program", class: "btn btn-info btn-large" if @school && @school.events.any? %>
           <br />
           <%= link_to "Fill in the Registration Form", "/registration", class: "btn btn-primary btn-large" if @school.active? %>
         </aside>
