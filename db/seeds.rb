@@ -12,3 +12,6 @@ Refinery::Pages::Engine.load_seed
 Refinery::Schools::Engine.load_seed
 
 Refinery::Links::Engine.load_seed
+
+# Added by Refinery CMS News engine
+Refinery::News::Engine.load_seed
