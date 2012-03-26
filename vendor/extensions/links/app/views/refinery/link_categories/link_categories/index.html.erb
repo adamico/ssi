@@ -1,9 +1,6 @@
-<% content_for :body_content_title do -%>
-  Links
-<% end -%>
-
 <% content_for :body_content_left do %>
-  <div id="link_categories" class="span8">
+  <h1 id="body_content_title">Links</h1>
+  <div id="link_categories">
     <% @link_categories.each do |link_category| %>
       <div class="link_category" id="<%= link_category.id%>">
         <div class="title"><%= link_category.title %></div>

@@ -7,7 +7,10 @@ body
 
 #page
   width: 1000px
-  margin: 0px auto
+  margin: 0px auto 20px auto
+  -webkit-box-shadow: 0 10px 10px 2px rgba(0, 0, 0, 0.6), inset 0 -1px 0 rgba(0, 0, 0, 0.1)
+  -moz-box-shadow: 0 10px 10px 2px rgba(0, 0, 0, 0.6), inset 0 -1px 0 rgba(0, 0, 0, 0.1)
+  box-shadow: 0 10px 10px 2px rgba(0, 0, 0, 0.6), inset 0 -1px 0 rgba(0, 0, 0, 0.1)
 
 /* header
 
@@ -68,11 +71,11 @@ header#header .logo
       color: #333
       text-shadow: 1px 1px 1px white
   > ul > li > a:hover
-    color: black
-    text-shadow: 1px 1px 1px #ddd
-    background: rgba(70, 137, 181, 1)
+    color: white
+    text-shadow: 1px 1px 1px #333
     -moz-border-radius: 5px 5px 0 0
     border-radius: 5px 5px 0 0
+    background: rgba(70, 137, 181, 1)
   li.selected > a
     color: white
     text-shadow: 1px 1px 1px black
@@ -114,12 +117,15 @@ header#header .logo
   min-height: 22px
   background: #D66C0E
   border-bottom: 1px solid white
+  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1)
+  -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1)
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1)
 
 #body_content
   background: #F0F0F0
-  background-image: image-url("img-labo.jpg"), image-url("bas-degrade-int.jpg"), image-url("fd-img-labo.gif")
-  background-repeat: no-repeat,no-repeat,repeat-y
-  background-position: top left,bottom left,top left
+  background-image: image-url("img-labo.jpg"), image-url("fd-img-labo.gif")
+  background-repeat: no-repeat,repeat-y
+  background-position: top left,top left
   min-height: 284px
   padding-left: 264px
 
