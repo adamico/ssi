@@ -1,11 +1,34 @@
+<% content_for :body_content_title do -%>
+  Links
+<% end -%>
+
 <% content_for :body_content_left do %>
-  <ul id="link_categories">
+  <div id="link_categories" class="span8">
     <% @link_categories.each do |link_category| %>
-      <li>
-        <%= link_to link_category.title, refinery.link_categories_link_category_path(link_category) %>
-      </li>
+      <div class="link_category" id="<%= link_category.id%>">
+        <div class="title"><%= link_category.title %></div>
+        <div class="links">
+          <% link_category.links.each do |link| -%>
+            <div class="link">
+              <%= link_to link.title, link.url, :target => "_blank" %>
+            </div>
+          <% end -%>
+        </div>
+      </div>
     <% end %>
-  </ul>
+    <% if @other_links.any? -%>
+      <div class="link_category">
+        <div class="title">Other links of interest</div>
+        <div class="links">
+          <% @other_links.each do |link| -%>
+            <div class="link">
+              <%= link_to link.title, link.url, :target => "_blank" %>
+            </div>
+          <% end -%>
+        </div>
+      </div>
+    <% end -%>
+  </div>
 <% end %>
 
 <%= render '/refinery/content_page' %>

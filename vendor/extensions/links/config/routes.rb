@@ -1,9 +1,6 @@
 Refinery::Core::Engine.routes.append do
 
-  # Frontend routes
-  namespace :links do
-    resources :links, :path => '', :only => [:index, :show]
-  end
+  get "/links" => "link_categories/link_categories#index"
 
   # Admin routes
   namespace :links, :path => '' do
