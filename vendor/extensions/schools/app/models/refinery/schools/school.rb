@@ -16,6 +16,8 @@ module Refinery
         title.split(" ").first + " school"
       end
 
+      self.per_page = 5
+
       def self.next
         with_state(:active).first
       end

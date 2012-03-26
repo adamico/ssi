@@ -24,7 +24,7 @@ module Refinery
     protected
 
       def find_all_schools
-        @schools = School.order('position ASC')
+        @schools = School.page(params[:page]).order('position ASC')
       end
 
       def find_page

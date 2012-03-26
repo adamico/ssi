@@ -1,4 +1,5 @@
 <% content_for :body_content_left do %>
+  <h1 id="body_content_title">Previous Schools</h1>
   <% if @schools.any? -%>
     <div id="schools">
       <% @schools.each do |school| %>
@@ -9,7 +10,7 @@
           <div class="publications"><%= raw school.publication %></div>
         </div>
       <% end %>
-      <%= will_paginate @schools %>
+      <%= page_navigation_links @schools %>
     </div>
   <% else %>
     <p>No previous schools found.</p>
