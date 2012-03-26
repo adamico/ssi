@@ -56,5 +56,7 @@ gem 'humanizer'
 gem 'simple_form'
 gem 'country_select'
 gem "paybox_system"
+gem "fog"
 
 gem 'refinerycms-links', :path => 'vendor/extensions'
+
