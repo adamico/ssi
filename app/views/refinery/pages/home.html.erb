@@ -1,12 +1,15 @@
 <section class="home">
-  <% if @school -%>
-    <article id="next_school">
-      <h4 class='title'><%= link_to @school.title, program_path %></h3>
-      <h3 class='theme'><%= @school.theme %></h2>
-      <h3 class='school_when_where'>
-        <%= @school.when_and_where %></h2>
-    </article>
-  <% else -%>
-    <h2>No school registered in database, yet.</h2>
-  <% end -%>
+  <div class="row">
+    <div class="span4 offset8">
+      <article id="next_school">
+        <% if @school -%>
+          <h3 class='title'><%= link_to @school.title, program_path %></h3>
+          <h3 class='theme'><%= @school.theme %></h3>
+          <h3 class='school_when_where'><%= @school.when_and_where %></h3>
+        <% else -%>
+          <h2>No school registered in database, yet.</h2>
+        <% end -%>
+      </article>
+    </div>
+  </div>
 </section>
