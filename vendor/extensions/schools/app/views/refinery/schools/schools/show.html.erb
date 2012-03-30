@@ -50,13 +50,11 @@
             </div>
           <% end -%>
         </div>
-      <% if Rails.env.development? %>
-      <% end -%>
       <% else %>
         No programmed events yet.
       <% end -%>
     </div>
-    <p id="print_program">Placeholder for print programme link</p>
+    <p id="print_program"><%= link_to "Printable Program", refinery.schools_school_path(@school, format: "pdf") %></p>
   <% end %>
 <% else %>
   Coming soon.

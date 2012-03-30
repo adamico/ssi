@@ -13,12 +13,20 @@ module Refinery
 
       def show
         @school = School.imminent_or_next
-        events = @school.events
+        events = @school.events.order(:starts_at)
         @events_days = events.group_by { |event| event.starts_at.beginning_of_day }
 
-        # you can use meta fields from your model instead (e.g. browser_title)
-        # by swapping @page for @school in the line below:
-        present(@page)
+        respond_to do |format|
+          format.html do
+            present(@page)
+          end
+          format.pdf do
+            pdf = SchoolPdf.new(@school, view_context, @events_days)
+            send_data pdf.render, filename: "#{@school.short_title}_program.pdf",
+              type: "application/pdf",
+              disposition: "inline"
+          end
+        end
       end
 
     protected
