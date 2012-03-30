@@ -9,6 +9,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    Ascii85 (1.0.1)
     actionmailer (3.2.2)
       actionpack (= 3.2.2)
       mail (~> 2.4.0)
@@ -102,8 +103,14 @@ GEM
       rails (~> 3)
     paybox_system (1.0.0)
       rack
+    pdf-reader (1.1.0)
+      Ascii85 (~> 1.0.0)
+      ruby-rc4
     pg (0.13.2)
     polyglot (0.3.3)
+    prawn (0.12.0)
+      pdf-reader (>= 0.9.0)
+      ttfunk (~> 1.0.2)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -179,6 +186,7 @@ GEM
     routing-filter (0.3.0)
       actionpack
     ruby-hmac (0.4.0)
+    ruby-rc4 (0.1.5)
     sass (3.1.15)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -200,6 +208,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     truncate_html (0.5.4)
+    ttfunk (1.0.3)
     tzinfo (0.3.32)
     uglifier (1.2.3)
       execjs (>= 0.3.0)
@@ -220,6 +229,7 @@ DEPENDENCIES
   jquery-rails
   paybox_system
   pg
+  prawn
   rails (= 3.2.2)
   refinerycms (~> 2.0.0)
   refinerycms-i18n (~> 2.0.0)

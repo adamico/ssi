@@ -57,6 +57,7 @@ gem 'simple_form'
 gem 'country_select'
 gem "paybox_system"
 gem "fog"
+gem "prawn"
 
 gem 'refinerycms-links', :path => 'vendor/extensions'
 
