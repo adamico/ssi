@@ -60,4 +60,4 @@ gem "fog"
 gem "prawn"
 
 gem 'refinerycms-links', :path => 'vendor/extensions'
-
+gem 'newrelic_rpm'
