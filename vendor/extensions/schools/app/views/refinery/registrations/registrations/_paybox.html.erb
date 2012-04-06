@@ -1,15 +1,16 @@
 <p>You've chosen the <strong>online payment method</strong>. By pressing the button below, you'll be redirected to our secure online payment system.</p>
 
-<form method="POST" action="https://tpeweb.paybox.com/cgi/MYchoix_pagepaiement.cgi">
+<form method="POST" action="https://preprod-tpeweb.paybox.com/cgi/MYchoix_pagepaiement.cgi">
   <%= paybox_hidden_fields :site => "0983383", :rang => "01", :identifiant => 527347197,
-    :paybox => "https://tpeweb.paybox.com/cgi/MYchoix_pagepaiement.cgi",
-    :backup1 => "https://tpeweb1.paybox.com/cgi/MYchoix_pagepaiement.cgi",
+    :paybox => "https://preprod-tpeweb.paybox.com/cgi/MYchoix_pagepaiement.cgi",
+    :backup1 => "https://preprod-tpeweb.paybox.com/cgi/MYchoix_pagepaiement.cgi",
+    :backup2 => "https://preprod-tpeweb.paybox.com/cgi/MYchoix_pagepaiement.cgi",
     :total => registration.amount,
     :devise => 978,
     :cmd => registration.id,
     :porteur => registration.email,
     :langue => "GBR",
-    :repondre_a => refinery.payment_callback_url(registration: registration.id),
+    :repondre_a => refinery.payment_callback_url,
     :retour => "amount:M;registration:R;autorization:A;date:W;heure:Q;transaction:T;error:E;sign:K",
     :annule => refinery.payment_canceled_url,
     :refuse => refinery.payment_refused_url,
