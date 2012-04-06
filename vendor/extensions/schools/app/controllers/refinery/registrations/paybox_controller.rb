@@ -8,8 +8,6 @@ module Refinery
       def ipn
         if params[:error] == "00000"
           logger.info "Successful Transaction : #{params.inspect}"
-          @registration.update_attribute(:status, "accepted")
-          logger.info "Updating registration #{@registration.id} status to 'accepted'"
         end
         render text: "OK"
       end
