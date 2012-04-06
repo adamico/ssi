@@ -11,6 +11,8 @@ module Refinery
       belongs_to :vignlieu, :class_name => '::Refinery::Image'
       has_many :events, :class_name => '::Refinery::Events::Event'
       has_many :registrations, :class_name => '::Refinery::Registrations::Registration'
+      geocoded_by :location
+      after_validation :geocode, :if => :location_changed?
 
       def short_title
         title.split(" ").first + " school"

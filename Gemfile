@@ -7,6 +7,7 @@ gem 'rails', '3.2.2'
 
 gem 'pg'
 gem "state_machine"
+gem 'geocoder'
 
 
 # Gems used only for assets and not required

@@ -76,6 +76,7 @@ GEM
       ruby-hmac
     formatador (0.2.1)
     friendly_id (4.0.3)
+    geocoder (1.1.1)
     globalize3 (0.2.0)
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
@@ -226,6 +227,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   country_select
   fog
+  geocoder
   humanizer
   jquery-rails
   newrelic_rpm
