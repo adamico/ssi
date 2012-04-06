@@ -10,14 +10,13 @@
     %>
     <%= link_to image_tag("http://maps.google.com/maps/api/staticmap?size=128x128&sensor=false&zoom=15&markers=#{school.latitude}%2C#{school.longitude}"), "http://maps.google.com/maps?q=#{location}&z=14", :target => "_blank" %>
   </div>
-  <p class="registration_fee"><b>REGISTRATION FEE : <%= school.formatted_price %> €</b> <span class="price_without_vat">(<%= school.price_without_vat %> € + VAT 19.6%)</span></p>
+  <p class="registration_fee"><b>REGISTRATION FEE : <%= school.formatted_price %></b> <span class="price_without_vat">(<%= school.price_without_vat %> € + VAT 19.6%)</span></p>
   <p class="deadline">DEADLINE FOR REGISTRATION : <%= l school.deadline, :format => :long %>
   <%= raw school.extranight %>
 </section>
 
 <%= simple_form_for [refinery, :registrations, registration], html: {class: "form-horizontal registration"} do |f| %>
   <%= f.input :school_id, as: :hidden %>
-  <%= f.input :amount, as: :hidden %>
   <div class="control-group">
     <%= f.label :title, "Name", class: "control-label" %>
     <div class="controls inline">

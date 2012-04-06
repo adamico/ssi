@@ -5,12 +5,13 @@ module Refinery
       before_filter :find_page
 
       def new
-        @registration = ::Refinery::Registrations::Registration.new(school_id: @school.id, :amount => @school.price) if @school
+        @registration = ::Refinery::Registrations::Registration.new(school_id: @school.id) if @school
       end
 
       def create
         @registration = ::Refinery::Registrations::Registration.new(params[:registration])
         @registration.ip = request.remote_ip
+        @registration.amount = @school.price
 
         if @registration.save
           success
@@ -25,6 +26,7 @@ module Refinery
 
       def update
         @registration = ::Refinery::Registrations::Registration.find(params[:id])
+        @registration.amount = @school.price
         if @registration.update_attributes(params[:registration])
           success
         else
