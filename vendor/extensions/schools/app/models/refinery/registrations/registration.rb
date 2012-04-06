@@ -40,6 +40,10 @@ module Refinery
           transition :payed => :refunded
         end
       end
+
+      def update_payment_date(date)
+        update_attributes(payment_date: date)
+      end
     end
   end
 end

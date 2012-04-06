@@ -24,6 +24,7 @@ module Refinery
 
       def accepted
         @registration.accept!
+        @registration.update_payment_date(params[:date] + params[:heure])
         @page = ::Refinery::Page.where(link_url: "/payment_accepted").first
       end
 
