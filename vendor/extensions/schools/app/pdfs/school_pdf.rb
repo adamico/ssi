@@ -20,16 +20,36 @@ class SchoolPdf < Prawn::Document
     @events_days.each do |day, events|
       move_down 10
       text day.strftime("%A %e"), style: :bold
-      table event_rows(events) do
-        self.row_colors = ["DDDDDD", "FFFFFF"]
+      table(event_rows(events), column_widths: [40, 300, 200], header: true) do
+        self.row_colors = ["FFFFFF", "DDDDDD"]
+        header = row(0)
+        body = rows(1..-1)
+
+        header.font_style = :bold
+        header.borders = [:bottom]
+        header.columns(0..-1).borders = [:bottom]
+        header.columns(0..-1).background_color = "FFFFFF"
+        header.border_width = 1
+        body.borders = []
+        rows(-1).borders = [:bottom]
+        titles = body.column(1)
+        speakers = body.column(-1)
+        speakers.style(font_style: :italic)
+        titles.style(font_style: :bold)
+        last_2_cols = body.columns(1..-1)
+        body.each do |line|
+          title = cells[line.row, 1]
+          speaker = cells[line.row, 2]
+          title.style(font_style: :italic) unless speaker.content.present?
+        end
       end
     end
   end
 
   def event_rows(events)
-    [] +
+    [["Time", "Event Title", "Speaker"]] +
     events.map do |event|
-      [event.time, event.title.gsub(/<\/?[^>]*>/, "")]
+      [event.time, event.title.gsub(/<\/?[^>]*>/, ""), event.speaker]
     end
   end
 end
