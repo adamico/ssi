@@ -1,0 +1,22 @@
+Hello, contact!
+
+A person with the following details has registered for the <%= @school.title %> :
+
+Surname : <%= @registration.surname %>
+First name : <%= @registration.try(:first_name) %>
+Title : <%= @registration.try(:title) %>
+Company : <%= @registration.try(:company) %>
+Address : <%= @registration.try(:address) %>
+City : <%= @registration.try(:city) %>
+Zip : <%= @registration.try(:zip) %>
+Country : <%= @registration.try(:country) %>
+Phone : <%= @registration.try(:phone) %>
+Fax : <%= @registration.try(:fax) %>
+Email : <%= @registration.try(:email) %>
+Arrival : <%= l @registration.arrival, :format => :long %>
+Departure : <%= l @registration.departure, :format => :long %>
+Accompanying person : <%= @registration.try(:accompagne) %>
+Payment by : <%= @registration.payment %>
+Amount payed : <%= @registration.formatted_amount %>
+
+This registration has been filed with the unique identification number : <%= @registration.id %>. This number is the reference used for the PAYBOX online payment system ('Ref. Commande')
