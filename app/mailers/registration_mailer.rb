@@ -1,5 +1,5 @@
 class RegistrationMailer < ActionMailer::Base
-  default :from => "contact@summerschool-immunotoxicology.org"
+  default :from => "contact@school-immunotoxicology.org"
 
   def registration_confirmation(registration)
     @registration = registration
@@ -13,7 +13,7 @@ class RegistrationMailer < ActionMailer::Base
     @registration = registration
     @school = @registration.school
     @title = @registration.title_with_name
-    mail(:to => "contact@summerschool-immunotoxicology.org",
+    mail(:to => "contact@school-immunotoxicology.org",
          :subject => "Registration id##{registration.id}")
   end
 end
