@@ -28,7 +28,7 @@ module Refinery
         [self.try(:title), first_name, surname].join(" ")
       end
 
-      PAYMENT_METHODS = %w(bank_transfer check online)
+      PAYMENT_METHODS = %w(bank_transfer check online invited)
 
       STATES = %w(pending payed refunded)
 

@@ -16,6 +16,13 @@
 </section>
 
 <%= simple_form_for [refinery, :registrations, registration], html: {class: "form-horizontal registration"} do |f| %>
+  <div class="form-actions">
+    <%= link_to "#", class: "btn btn-info", id: "invited-speaker" do -%>
+      <i class="icon-white icon-gift"></i>
+      Click here if you are an invited speaker
+    <% end -%>
+  </div>
+
   <%= f.input :school_id, as: :hidden %>
   <div class="control-group">
     <%= f.label :title, "Name", class: "control-label" %>
@@ -47,15 +54,19 @@
   <div class="control-group">
     <%= f.label "Attend period", class: "control-label" %>
     <div class="controls inline">
-      <%= f.text_field :arrival, :placeholder => "Arrival" %>
-      <%= f.text_field :departure, :placeholder => "Departure" %>
+      <%= f.text_field :arrival, :placeholder => "Arrival", "data-pre" => parsed_arrival %>
+      <%= f.text_field :departure, :placeholder => "Departure", "data-pre" => parsed_departure %>
     </div>
+    <div class="controls">Date format: dd/mm/yyyy</div>
   </div>
   <%= f.input :accompagne, label: "Accompanying person", input_html: {:placeholder => "Enter name if relevant"} %>
-  <%= f.input :payment, label: "Payment by", collection: ::Refinery::Registrations::Registration::PAYMENT_METHODS %>
+  <%= f.input :payment, label: "Payment by", collection: ::Refinery::Registrations::Registration::PAYMENT_METHODS, wrapper_html: {id: "payment-wrap"}%>
   <%= f.input :humanizer_answer, label: registration.humanizer_question, input_html: {:placeholder => "Enter the answer here"} %>
   <%= f.input :humanizer_question_id, as: :hidden %>
   <div class= "form-actions">
-    <%= f.button :submit, "Submit", class: "btn-success" %>
+    <%= button_tag type: :submit, class: "btn btn-success" do -%>
+      <i class="icon-white icon-ok"></i>
+      Submit
+    <% end -%>
   </div>
 <% end %>

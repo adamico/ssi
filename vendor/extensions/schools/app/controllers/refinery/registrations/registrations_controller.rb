@@ -3,6 +3,8 @@ module Refinery
     class RegistrationsController < ::ApplicationController
       before_filter :find_next_school
       before_filter :find_page
+      helper_method :parsed_arrival
+      helper_method :parsed_departure
 
       def new
         @registration = ::Refinery::Registrations::Registration.new(school_id: @school.id) if @school
@@ -35,6 +37,14 @@ module Refinery
       end
 
       protected
+
+      def parsed_arrival
+        @parsed_arrival ||= params[:id].present? ? l(@registration.arrival, format: :ddmmyyyy) : ""
+      end
+
+      def parsed_departure
+        @parsed_departure ||= params[:id].present? ? l(@registration.departure, format: :ddmmyyyy) : ""
+      end
 
       def find_next_school
         @school = ::Refinery::Schools::School.try(:imminent_or_next)
