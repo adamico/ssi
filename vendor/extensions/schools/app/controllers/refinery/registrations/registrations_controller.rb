@@ -23,7 +23,8 @@ module Refinery
       end
 
       def edit
-        @registration = ::Refinery::Registrations::Registration.find(params[:id])
+        @registration = ::Refinery::Registrations::Registration.find(params[:id]) if @school
+        redirect_to "/page-not-found" unless @registration
       end
 
       def update

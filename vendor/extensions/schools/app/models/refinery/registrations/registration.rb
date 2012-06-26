@@ -7,7 +7,7 @@ module Refinery
       acts_as_indexed :fields => [:surname, :first_name, :title, :company, :address, :city, :zip, :country, :phone, :fax, :email, :accompagne, :ip, :payment, :amount, :payment_date, :state]
       include Humanizer
       attr_accessor :bypass_humanizer
-      attr_accessible :humanizer_answer, :humanizer_question_id, :surname, :first_name, :title, :company, :address, :city, :zip, :country, :phone, :fax, :email, :accompagne, :ip, :payment, :amount, :payment_date, :state, :school_id, :arrival, :departure
+      attr_accessible :humanizer_answer, :humanizer_question_id, :surname, :first_name, :title, :company, :address, :city, :zip, :country, :phone, :fax, :email, :accompagne, :ip, :payment, :amount, :payment_date, :state, :school_id, :arrival, :departure, :state_event
 
       if Rails.env.production?
         require_human_on :create, :unless => :bypass_humanizer

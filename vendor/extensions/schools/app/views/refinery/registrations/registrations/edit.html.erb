@@ -2,6 +2,9 @@
   <% if @registration.payed? -%>
     <p>You cannot edit your registration further as the <strong><%= @registration.payment %> payment</strong> you provided has already been accepted.</p>
     <p>If you need to modify the details of your registration please contact us at <%= mail_to "contact@school-immunotoxicology.org", nil, replace_at: "_at_", replace_dot: "_dot_", subject: "[Registration ##{@registration.id}]"%></p>
+  <% elsif @registration.refunded? -%>
+    <p>This registration has been refunded, no further actions are possible.</p>
+    <p>If you want to submit a new registration please <%= link_to "Click here", refinery.new_registrations_registration_path, class: "btn btn-primary btn-large" %></p>
   <% else %>
     <div class='registrations'>
       <%= render 'form', registration: @registration, school: @school %>

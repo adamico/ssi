@@ -42,7 +42,7 @@ module Refinery
 
       def when_and_where
         if cancelled?
-          "CANCELLED"
+          "CANCELED"
         elsif announced?
           month_and_year + " #{place}"
         else

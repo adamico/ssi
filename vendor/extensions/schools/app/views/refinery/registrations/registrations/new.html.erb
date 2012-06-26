@@ -11,7 +11,12 @@
         <h3>Registrations are not yet open.</h2>
       <% end -%>
     <% else -%>
-      <h3>Registrations are closed.</h2>
+      <% last_school = ::Refinery::Schools::School.last %>
+      <% if last_school.cancelled? -%>
+        <h3>Registrations for the <%= last_school.title %> are closed since this summerschool has been cancelled. See you next year!</h2>
+        <% else %>
+        <h3>Registrations are closed.</h2>
+      <% end -%>
     <% end -%>
   </div>
 <% end %>
