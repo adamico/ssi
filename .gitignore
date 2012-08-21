@@ -92,3 +92,5 @@ capybara-*html
 #ruby
 vendor/ruby/*
 vendor/extensions/*/vendor/ruby/*
+
+*.dump
