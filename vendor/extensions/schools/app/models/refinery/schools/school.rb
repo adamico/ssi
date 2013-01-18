@@ -55,7 +55,11 @@ module Refinery
       end
 
       def period
-        "#{starts_at.day}-#{ends_at.day} #{starts_at.strftime'%B'} #{starts_at.year}"
+        if starts_at.month == ends_at.month
+          "#{starts_at.day}-#{ends_at.day} #{starts_at.strftime'%B'} #{starts_at.year}"
+        else
+          "#{starts_at.day} #{starts_at.strftime'%B'} - #{ends_at.day} #{ends_at.strftime'%B'} #{starts_at.year}"
+        end
       end
 
       def formatted_price
