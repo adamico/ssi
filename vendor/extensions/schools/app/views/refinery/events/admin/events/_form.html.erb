@@ -9,7 +9,7 @@
   
   <div class='field'>
     <%= f.label :starts_at -%>
-    <%= f.datetime_select :starts_at, {}, class: "input-small"   -%>
+    <%= f.datetime_select :starts_at, {default: @last_event_time}, class: "input-small"   -%>
   </div>
   
   <div class='field'>

@@ -5,7 +5,7 @@ module Refinery
 
       acts_as_indexed :fields => [:title, :speaker]
 
-      validates :title, :presence => true, :uniqueness => true
+      validates :title, :presence => true
 
       belongs_to :school, :class_name => '::Refinery::Schools::School'
 
