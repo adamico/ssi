@@ -1,5 +1,5 @@
-<% if @school -%>
-  <% content_for :body_content_left do %>
+<% content_for :body do %>
+  <% if @school -%>
     <section id="school_title">
       <h1><%= @school.title %></h1>
     </section>
@@ -55,9 +55,9 @@
       <% end -%>
     </div>
     <p id="print_program"><%= link_to "Printable Program", refinery.schools_school_path(@school, format: "pdf") %></p>
+  <% else %>
+    Coming soon.
   <% end %>
-<% else %>
-  Coming soon.
 <% end -%>
 
 <%= render '/refinery/content_page' %>
