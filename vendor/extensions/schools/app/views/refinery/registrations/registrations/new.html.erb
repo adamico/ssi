@@ -9,6 +9,7 @@
         <%= render 'form', registration: @registration, school: @school %>
       <% else -%>
         <h3>Registrations are not yet open.</h2>
+        <%= raw @school.extranight %>
       <% end -%>
     <% else -%>
       <% last_school = ::Refinery::Schools::School.last %>
