@@ -3,37 +3,33 @@
               :object => @school,
               :include_object_name => true %>
 
-  
   <div class='field'>
     <%= f.label :title -%>
     <%= f.text_field :title, :class => 'larger widest'  -%>
 
   </div>
-  
+
   <div class='field'>
     <%= f.label :starts_at -%>
     <%= f.date_select :starts_at  -%>
 
   </div>
-  
+
   <div class='field'>
     <%= f.label :ends_at -%>
     <%= f.date_select :ends_at  -%>
-
   </div>
-  
+
   <div class='field'>
     <%= f.label :place -%>
     <%= f.text_field :place  -%>
-
   </div>
-  
+
   <div class='field'>
     <%= f.label :location -%>
     <%= f.text_field :location  -%>
-
   </div>
-  
+
   <div class='field'>
     <%= f.label :vignlieu -%>
     <%= render '/refinery/admin/image_picker',
@@ -41,86 +37,67 @@
                :field => :vignlieu_id,
                :image => @school.vignlieu,
                :toggle_image_display => false %>
-
   </div>
-  
+
   <div class='field'>
     <%= f.label :price -%>
     <%= f.text_field :price  -%>
-
   </div>
-  
+
   <div class='field'>
     <%= f.label :deadline -%>
     <%= f.date_select :deadline  -%>
-
   </div>
-  
+
   <div class='field'>
     <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
       <ul id='page_parts'>
-        <% [:extranight, :award, :intro_program, :publication].each_with_index do |part, part_index| %>
+        <% [:extranight, :award, :intro_program, :intro_registration, :publication].each_with_index do |part, part_index| %>
           <li class='ui-state-default<%= ' ui-state-active' if part_index == 0 %>'>
             <%= link_to t("#{part}", :scope => "activerecord.attributes.refinery/schools/school", :default => part.to_s.titleize), "##{part}" %>
           </li>
         <% end %>
       </ul>
       <div id='page_part_editors'>
-        <% [:extranight, :award, :intro_program, :publication].each do |part| %>
+        <% [:extranight, :award, :intro_program, :intro_registration, :publication].each do |part| %>
           <div class='page_part' id='<%= part %>'>
             <%= f.text_area part, :rows => 20, :class => 'wymeditor widest' -%>
           </div>
         <% end %>
       </div>
     </div>
-
   </div>
-  
+
   <div class='field'>
     <%= f.label :theme -%>
     <%= f.text_field :theme  -%>
-
   </div>
-  
+
   <div class='field'>
     <%= f.label :sub_theme -%>
     <%= f.text_field :sub_theme  -%>
-
   </div>
-  
+
   <div class='field'>
     <%= f.label :organiser -%>
     <%= f.text_field :organiser  -%>
-
   </div>
-  
+
   <div class='field'>
     <%= f.label :sub_organizer -%>
     <%= f.text_field :sub_organizer  -%>
-
   </div>
-  
 
-  </div>
-  
-
-  </div>
-  
-
-  </div>
-  
   <div class='field'>
     <%= f.label :state -%>
     <%= f.text_field :state  -%>
-
   </div>
-  
+
   <div class='field'>
     <%= f.label :registrations_start_at -%>
     <%= f.date_select :registrations_start_at  -%>
-
   </div>
-  
+
   <%= render '/refinery/admin/form_actions', :f => f,
              :continue_editing => false,
              :delete_title => t('delete', :scope => 'refinery.schools.admin.schools.school'),

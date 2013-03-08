@@ -3,6 +3,7 @@ module Refinery
   module Schools
     class School < Refinery::Core::BaseModel
       self.table_name = 'refinery_schools'
+      attr_accessible :title, :starts_at, :ends_at, :place, :location, :vignlieu_id, :price, :deadline, :extranight, :theme, :sub_theme, :organiser, :sub_organizer, :award, :intro_program, :publication, :state, :position, :latitude, :longitude, :gmaps, :registrations_start_at, :intro_registration
 
       acts_as_indexed :fields => [:title, :place, :location, :extranight, :theme, :sub_theme, :organiser, :sub_organizer, :award, :intro_program, :publication, :state]
 

@@ -8,8 +8,11 @@
       <% if @school.active? -%>
         <%= render 'form', registration: @registration, school: @school %>
       <% else -%>
-        <h3>Registrations are not yet open.</h2>
-        <%= raw @school.extranight %>
+        <% if @school.intro_registration %>
+          <%= raw @school.intro_registration %>
+        <% else %>
+          <h3>Registrations are not yet open.</h2>
+        <% end -%>
       <% end -%>
     <% else -%>
       <% last_school = ::Refinery::Schools::School.last %>
