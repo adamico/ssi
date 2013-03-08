@@ -2,7 +2,7 @@
   Registration Form
 <% end -%>
 
-<% content_for :body_content_left do %>
+<% content_for :body do %>
   <div class='registrations'>
     <% if @registration -%>
       <% if @school.active? -%>
@@ -26,4 +26,3 @@
 <% end %>
 
 <%= render "/refinery/content_page" %>
-

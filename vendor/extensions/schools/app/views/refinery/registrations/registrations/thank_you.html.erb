@@ -1,4 +1,4 @@
-<% content_for :body_content_left do %>
+<% content_for :body do %>
   <p>Thank you for registering, Dear <strong><%= @registration.title_with_name %></strong>.</p>
   <p>You will shortly receive an email with the details you provided which you are kindly invited to verify. Please inform us of any corrections you want to make.</p>
   <p>This registration has been filed with the <strong>number #<%= @registration.id %></strong>. To finalize the registration process you have to provide a valid payment means.</p>
@@ -18,4 +18,3 @@
 <% end -%>
 
 <%= render "/refinery/content_page" %>
-
