@@ -1,3 +1,4 @@
+<% unless Rails.env.development? %>
 <div class="row">
   <div class="span4">
     <h4>Join us on Facebook</h4>
@@ -35,3 +36,4 @@
   <%= t('.copyright', :year => Time.now.year,
                       :site_name => Refinery::Core.site_name) %>
 </p>
+<% end -%>
