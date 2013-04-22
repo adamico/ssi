@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -20,7 +20,7 @@ group :assets do
   # gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'bootstrap-sass'
+  gem 'bootstrap-sass', '~> 2.3.1.0'
 end
 
 gem 'jquery-rails'
@@ -42,7 +42,7 @@ gem 'jquery-rails'
 
 
 # Refinery CMS
-gem 'refinerycms', '~> 2.0.0'
+gem 'refinerycms', '~> 2.0.9'
 
 # Specify additional Refinery CMS Extensions here (all optional):
 gem 'refinerycms-i18n',   '~> 2.0.0'
@@ -63,3 +63,9 @@ gem "prawn"
 gem 'refinerycms-links', :path => 'vendor/extensions'
 gem 'newrelic_rpm', "~> 3.5.3.25"
 gem 'thin'
+
+group :development do
+  gem 'zeus'
+  gem "pry-rails"
+  gem "quiet_assets", ">= 1.0.1"
+end
