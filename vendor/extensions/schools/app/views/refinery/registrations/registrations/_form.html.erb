@@ -3,6 +3,7 @@
   <h4 class="theme"><%= school.theme %></h4>
 </section>
 <section>
+  <% unless Rails.env.development? %>
   <div class="vignette_and_gmaps">
     <%= image_fu school.vignlieu, "128x128" %>
     <% require 'uri'
@@ -10,9 +11,10 @@
     %>
     <%= link_to image_tag("http://maps.google.com/maps/api/staticmap?size=128x128&sensor=false&zoom=15&markers=#{school.latitude}%2C#{school.longitude}"), "http://maps.google.com/maps?q=#{location}&z=14", :target => "_blank" %>
   </div>
+  <% end -%>
   <p class="registration_fee"><b>REGISTRATION FEE : <%= school.formatted_price %></b> <span class="price_without_vat">(<%= school.price_without_vat %> € + VAT 19.6%)</span></p>
   <p class="deadline">DEADLINE FOR REGISTRATION : <%= l school.deadline, :format => :long %>
-  <%= raw school.extranight %>
+  <%= raw school.intro_registration %>
 </section>
 
 <%= simple_form_for [refinery, :registrations, registration], html: {class: "form-horizontal registration"} do |f| %>
@@ -26,40 +28,78 @@
   <%= f.input :school_id, as: :hidden %>
   <div class="control-group">
     <%= f.label :title, "Name", class: "control-label" %>
-    <div class="controls inline">
-      <%= f.text_field :title, :placeholder => "Title", :autofocus => true, class: "span1" %>
-      <%= f.text_field :surname, :placeholder => "Surname" %>
-      <%= f.text_field :first_name, :placeholder => "First Name" %>
+    <div class="controls controls-row">
+      <%= f.text_field :title, :placeholder => "Title", autofocus: true, class: "span2" %>
+      <%= f.text_field :surname, :placeholder => "Last", class: "span2" %>
+      <%= f.text_field :first_name, :placeholder => "First", class: "span2" %>
     </div>
   </div>
-  <%= f.input :company, input_html: {class: "span4"} %>
-  <%= f.input :address, input_html: {class: "span4"} %>
+  <%= f.input :company, input_html: {class: "span6"} %>
+  <%= f.input :address, input_html: {class: "span6"} %>
   <div class="control-group">
     <%= f.label "Address 2", class: "control-label" %>
-    <div class="controls inline">
-      <%= f.text_field :city, :placeholder => "City", class: "span3" %>
-      <%= f.text_field :zip, :placeholder => "Zip Code", class: "input-mini" %>
+    <div class="controls controls-row">
+      <%= f.text_field :city, :placeholder => "City", class: "span4" %>
+      <%= f.text_field :zip, :placeholder => "Zip Code", class: "span2" %>
     </div>
   </div>
-  <%= f.input :country %>
+  <%= f.input :country, input_html: {class: "span6"} %>
   <div class="control-group">
     <%= f.label "Telephone/Fax", class: "control-label" %>
-    <div class="controls inline">
-      <%= f.text_field :phone, type: "phone", placeholder: "Telephone"  %>
-      <%= f.text_field :fax, type: "phone", placeholder: "Fax" %>
+    <div class="controls controls-row">
+      <%= f.text_field :phone, placeholder: "Telephone", class: "span3" %>
+      <%= f.text_field :fax, placeholder: "Fax", class: "span3" %>
     </div>
   </div>
 
   <%= f.input :email, input_html: {:placeholder => "me@example.com"} %>
   <div class="control-group">
-    <%= f.label "Attend period", class: "control-label" %>
-    <div class="controls inline">
-      <%= f.text_field :arrival, :placeholder => "Arrival", "data-pre" => parsed_arrival %>
-      <%= f.text_field :departure, :placeholder => "Departure", "data-pre" => parsed_departure %>
+    <%= f.label "Special dietary request", class: "control-label" %>
+    <div class="controls">
+      <% [:vegetarian, :muslim, :kosher].each do |field| %>
+      <label class="checkbox inline">
+        <%= f.check_box field %>
+        <%= field.to_s.titleize %>
+      </label>
+      <% end -%>
+      <label class="checkbox inline">
+        <%= f.check_box :dietary_other %>
+        Other
+      </label>
+      <%= f.text_field :dietary_what, style: "display: none;", class: "span2" %>
     </div>
-    <div class="controls">Date format: dd/mm/yyyy</div>
   </div>
-  <%= f.input :accompagne, label: "Accompanying person", input_html: {:placeholder => "Enter name if relevant"} %>
+
+  <%= f.input :accompagne, label: "Are you accompanied ?", as: :radio_buttons, collection: %w(Yes No), item_wrapper_class: "inline" %>
+
+  <div class="accompanying-fields" style="display: none;">
+    <div class="control-group">
+      <%= f.label :title, "Companion name", class: "control-label" %>
+      <div class="controls controls-row">
+        <%= f.text_field :accompagne_last_name, :placeholder => "Title", class: "span2" %>
+        <%= f.text_field :accompagne_last_name, :placeholder => "Last", class: "span2" %>
+        <%= f.text_field :accompagne_first_name, :placeholder => "First", class: "span2" %>
+      </div>
+    </div>
+    <%= f.input :accompagne_country, label: "Companion country", input_html: {class: "span6"} %>
+    <div class="control-group">
+      <%= f.label "Special dietary request", class: "control-label" %>
+      <div class="controls">
+        <% %w(vegetarian muslim kosher).each do |field| %>
+        <label class="checkbox inline">
+          <%= f.check_box :"accompagne_#{field}" %>
+          <%= field.to_s.titleize %>
+        </label>
+        <% end -%>
+        <label class="checkbox inline">
+          <%= f.check_box :accompagne_dietary_other %>
+          Other
+        </label>
+        <%= f.text_field :accompagne_other_what, style: "visibility: hidden;", class: "span2" %>
+      </div>
+    </div>
+  </div>
+
   <%= f.input :payment, label: "Payment by", collection: ::Refinery::Registrations::Registration::PAYMENT_METHODS, wrapper_html: {id: "payment-wrap"}%>
   <%= f.input :humanizer_answer, label: registration.humanizer_question, input_html: {:placeholder => "Enter the answer here"} %>
   <%= f.input :humanizer_question_id, as: :hidden %>

@@ -7,16 +7,16 @@ module Refinery
       acts_as_indexed :fields => [:surname, :first_name, :title, :company, :address, :city, :zip, :country, :phone, :fax, :email, :accompagne, :ip, :payment, :amount, :payment_date, :state]
       include Humanizer
       attr_accessor :bypass_humanizer
-      attr_accessible :humanizer_answer, :humanizer_question_id, :surname, :first_name, :title, :company, :address, :city, :zip, :country, :phone, :fax, :email, :accompagne, :ip, :payment, :amount, :payment_date, :state, :school_id, :arrival, :departure, :state_event
+      attr_accessible :humanizer_answer, :humanizer_question_id, :surname, :first_name, :title, :company, :address, :city, :zip, :country, :phone, :fax, :email, :vegetarian, :muslim, :kosher, :dietary_other, :dietary_what, :accompagne_last_name, :accompagne_first_name, :accompagne_country, :accompagne_vegetarian, :accompagne_muslim, :accompagne_kosher, :accompagne_dietary_other, :accompagne_other_what, :accompagne, :ip, :payment, :amount, :payment_date, :state, :school_id, :arrival, :departure, :state_event
 
       if Rails.env.production?
         require_human_on :create, :unless => :bypass_humanizer
       end
 
-      validates :surname, :presence => true
-      validates :arrival, :presence => true
-      validates :departure, :presence => true
-      validates :email, :presence => true
+      validates :surname, presence: true
+      validates :company, presence: true
+      validates :phone, presence: true
+      validates :email, presence: true
 
       belongs_to :school, :class_name => '::Refinery::Schools::School'
 

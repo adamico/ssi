@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130308102632) do
+ActiveRecord::Schema.define(:version => 20130422114938) do
 
   create_table "refinery_events", :force => true do |t|
     t.string   "title"
@@ -163,8 +163,22 @@ ActiveRecord::Schema.define(:version => 20130308102632) do
     t.integer  "school_id"
     t.string   "state"
     t.integer  "position"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+    t.boolean  "vegetarian"
+    t.boolean  "muslim"
+    t.boolean  "kosher"
+    t.boolean  "dietary_other"
+    t.string   "dietary_what"
+    t.string   "accompagne_title"
+    t.string   "accompagne_last_name"
+    t.string   "accompagne_first_name"
+    t.string   "accompagne_country"
+    t.boolean  "accompagne_vegetarian"
+    t.boolean  "accompagne_muslim"
+    t.boolean  "accompagne_kosher"
+    t.boolean  "accompagne_dietary_other"
+    t.string   "accompagne_other_what"
   end
 
   create_table "refinery_resources", :force => true do |t|
@@ -216,6 +230,9 @@ ActiveRecord::Schema.define(:version => 20130308102632) do
     t.datetime "updated_at",             :null => false
     t.integer  "oldid"
     t.text     "intro_registration"
+    t.integer  "early_bird_price"
+    t.integer  "accompagne_price"
+    t.date     "early_bird_date"
   end
 
   create_table "refinery_settings", :force => true do |t|

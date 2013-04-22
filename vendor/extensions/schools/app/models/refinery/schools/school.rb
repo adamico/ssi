@@ -3,7 +3,7 @@ module Refinery
   module Schools
     class School < Refinery::Core::BaseModel
       self.table_name = 'refinery_schools'
-      attr_accessible :title, :starts_at, :ends_at, :place, :location, :vignlieu_id, :price, :deadline, :extranight, :theme, :sub_theme, :organiser, :sub_organizer, :award, :intro_program, :publication, :state, :position, :latitude, :longitude, :gmaps, :registrations_start_at, :intro_registration
+      attr_accessible :title, :starts_at, :ends_at, :place, :location, :vignlieu_id, :price, :early_bird_price, :accompagne_price, :early_bird_date, :deadline, :extranight, :theme, :sub_theme, :organiser, :sub_organizer, :award, :intro_program, :publication, :state, :position, :latitude, :longitude, :gmaps, :registrations_start_at, :intro_registration
 
       acts_as_indexed :fields => [:title, :place, :location, :extranight, :theme, :sub_theme, :organiser, :sub_organizer, :award, :intro_program, :publication, :state]
 
@@ -37,8 +37,12 @@ module Refinery
         with_state(:closed)
       end
 
+      def current_price
+        Date.today <= early_bird_date ? early_bird_price : price
+      end
+
       def price_without_vat
-        (price / 100 / 1.196).round(2)
+        (current_price / 100 / 1.196).round(2)
       end
 
       def when_and_where
@@ -64,7 +68,7 @@ module Refinery
       end
 
       def formatted_price
-        (price / 100).to_s + " €"
+        (current_price / 100).to_s + " €"
       end
 
       # state machines

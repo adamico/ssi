@@ -14,5 +14,4 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require jquery.maskedinput
-//= require common
 //= require_tree .
