@@ -13,6 +13,6 @@ class AddDetailsToRefineryRegistrations < ActiveRecord::Migration
     add_column :refinery_registrations, :accompagne_muslim, :boolean
     add_column :refinery_registrations, :accompagne_kosher, :boolean
     add_column :refinery_registrations, :accompagne_dietary_other, :boolean
-    add_column :refinery_registrations, :accompagne_other_what, :string
+    add_column :refinery_registrations, :accompagne_dietary_what, :string
   end
 end

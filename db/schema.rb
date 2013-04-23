@@ -178,7 +178,7 @@ ActiveRecord::Schema.define(:version => 20130422114938) do
     t.boolean  "accompagne_muslim"
     t.boolean  "accompagne_kosher"
     t.boolean  "accompagne_dietary_other"
-    t.string   "accompagne_other_what"
+    t.string   "accompagne_dietary_what"
   end
 
   create_table "refinery_resources", :force => true do |t|
