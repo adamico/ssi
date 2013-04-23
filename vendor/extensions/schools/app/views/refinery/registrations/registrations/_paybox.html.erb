@@ -1,9 +1,10 @@
 <p>You've chosen the <strong>online payment method</strong>. By pressing the button below, you'll be redirected to our secure online payment system.</p>
 
-<form method="POST" action="https://tpeweb.paybox.com/cgi/MYchoix_pagepaiement.cgi">
+<% paybox_url = "https://preprod-tpeweb.paybox.com/cgi/MYchoix_pagepaiement.cgi" %>
+<form method="POST" action="<%= paybox_url %>">
   <%= paybox_hidden_fields :site => "0983383", :rang => "01", :identifiant => 527347197,
-    :paybox => "https://tpeweb.paybox.com/cgi/MYchoix_pagepaiement.cgi",
-    :backup1 => "https://tpeweb1.paybox.com/cgi/MYchoix_pagepaiement.cgi",
+    :paybox => paybox_url,
+    :backup1 => paybox_url,
     :total => registration.amount,
     :devise => 978,
     :cmd => registration.id,
