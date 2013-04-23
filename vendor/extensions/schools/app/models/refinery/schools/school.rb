@@ -3,7 +3,7 @@ module Refinery
   module Schools
     class School < Refinery::Core::BaseModel
       self.table_name = 'refinery_schools'
-      attr_accessible :title, :starts_at, :ends_at, :place, :location, :vignlieu_id, :price, :early_bird_price, :accompagne_price, :early_bird_date, :deadline, :extranight, :theme, :sub_theme, :organiser, :sub_organizer, :award, :intro_program, :publication, :state, :position, :latitude, :longitude, :gmaps, :registrations_start_at, :intro_registration
+      attr_accessible :title, :starts_at, :ends_at, :place, :location, :vignlieu_id, :price, :early_bird_price, :accompagne_price, :early_bird_date, :deadline, :extranight, :theme, :sub_theme, :organiser, :sub_organizer, :award, :intro_program, :publication, :state, :position, :latitude, :longitude, :gmaps, :registrations_start_at, :intro_registration, :state_event
 
       acts_as_indexed :fields => [:title, :place, :location, :extranight, :theme, :sub_theme, :organiser, :sub_organizer, :award, :intro_program, :publication, :state]
 
@@ -86,6 +86,7 @@ module Refinery
         end
         event :activate do
           transition :imminent => :active
+          transition [:closed, :cancelled] => :active
         end
         event :close do
           transition :active => :closed

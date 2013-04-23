@@ -39,13 +39,35 @@
                :toggle_image_display => false %>
   </div>
 
+  <h4>N.B. All prices are to be expressed in euro cents (e.g. for 2000 € fill fields with 200000 )</h4>
+
   <div class='field'>
     <%= f.label :price -%>
     <%= f.text_field :price  -%>
   </div>
 
   <div class='field'>
-    <%= f.label :deadline -%>
+    <%= f.label :early_bird_price -%>
+    <%= f.text_field :early_bird_price  -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :accompagne_price, "Accompanying person price" -%>
+    <%= f.text_field :accompagne_price  -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :registrations_start_at -%>
+    <%= f.date_select :registrations_start_at  -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :early_bird_date, "Early bird deadline" -%>
+    <%= f.date_select :early_bird_date  -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :deadline, "Final deadline" -%>
     <%= f.date_select :deadline  -%>
   </div>
 
@@ -90,12 +112,7 @@
 
   <div class='field'>
     <%= f.label :state -%>
-    <%= f.text_field :state  -%>
-  </div>
-
-  <div class='field'>
-    <%= f.label :registrations_start_at -%>
-    <%= f.date_select :registrations_start_at  -%>
+    <%= f.collection_select :state_event, @school.state_transitions, :event, :human_to_name, :include_blank => @school.human_state_name %>
   </div>
 
   <%= render '/refinery/admin/form_actions', :f => f,
