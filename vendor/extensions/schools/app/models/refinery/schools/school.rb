@@ -37,12 +37,20 @@ module Refinery
         with_state(:closed)
       end
 
+      def total_price
+        current_price + accompagne_price
+      end
+
       def current_price
         Date.today <= early_bird_date ? early_bird_price : price
       end
 
-      def price_without_vat
-        (current_price / 100 / 1.196).round(2)
+      def price_without_vat(the_price)
+        (the_price / 100 / 1.196).round(2)
+      end
+
+      def formatted_price(price_method)
+        (self.send(price_method) / 100).to_s + " €"
       end
 
       def when_and_where
@@ -65,10 +73,6 @@ module Refinery
         else
           "#{starts_at.day} #{starts_at.strftime'%B'} - #{ends_at.day} #{ends_at.strftime'%B'} #{starts_at.year}"
         end
-      end
-
-      def formatted_price
-        (current_price / 100).to_s + " €"
       end
 
       # state machines

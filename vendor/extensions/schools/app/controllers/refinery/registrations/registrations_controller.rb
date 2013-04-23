@@ -13,7 +13,7 @@ module Refinery
       def create
         @registration = ::Refinery::Registrations::Registration.new(params[:registration])
         @registration.ip = request.remote_ip
-        @registration.amount = @school.price
+        @registration.amount = @registration.accompagne == "Yes" ? @school.total_price : @school.current_price
 
         if @registration.save
           success
