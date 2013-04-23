@@ -11,7 +11,7 @@ module Refinery
       end
 
       def create
-        @registration = ::Refinery::Registrations::Registration.new(params[:registration])
+j       @registration = ::Refinery::Registrations::Registration.new(params[:registration])
         @registration.ip = request.remote_ip
         @registration.amount = @registration.accompagne == "Yes" ? @school.total_price : @school.current_price
 
@@ -29,7 +29,7 @@ module Refinery
 
       def update
         @registration = ::Refinery::Registrations::Registration.find(params[:id])
-        @registration.amount = @school.price
+        @registration.amount = @registration.accompagne == "Yes" ? @school.total_price : @school.current_price
         if @registration.update_attributes(params[:registration])
           success
         else
