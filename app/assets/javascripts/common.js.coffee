@@ -30,9 +30,10 @@ $ ->
     showNextif $dietary_other_field.attr("checked") is "checked", $dietary_other_field, $dietary_other_field.parent().next()
 
   $accompagne_radio = $("#registration_accompagne_yes")
-  showNextif $accompagne_radio.attr("checked") is "checked", $accompagne_radio, $(".accompanying-fields")
+  accompagne_radio_checked = $accompagne_radio.attr("checked") is "checked"
+  showNextif accompagne_radio_checked, $accompagne_radio, $(".accompanying-fields")
 
-  calculate_total_amount()
+  calculate_total_amount(accompagne_radio_checked)
 
   $("[name='registration[accompagne]']").change ->
     addAccompanyingPrice = false
