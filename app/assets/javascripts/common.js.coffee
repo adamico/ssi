@@ -36,6 +36,9 @@ $ ->
     $next = $(".accompanying-fields")
     condition = @value is "Yes"
     showNextif condition, $(@), $next
+    if @value is "No"
+      $("#registration_accompagne_#{suffix}").val("") for suffix in ["title", "last_name", "first_name", "country", "other_what"]
+      $("#registration_accompagne_#{suffix}").attr("checked", false) for suffix in ["vegetarian", "muslim", "kosher", "dietary_other"]
 
 make_invited = (element) ->
   $(element).hide()
