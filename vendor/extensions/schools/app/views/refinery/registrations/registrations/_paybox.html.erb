@@ -2,13 +2,13 @@
 
 <% paybox_url = "https://preprod-tpeweb.paybox.com/cgi/MYchoix_pagepaiement.cgi" %>
 <form method="POST" action="<%= paybox_url %>">
-  <%= paybox_hidden_fields :site => "0983383", :rang => "01", :identifiant => 527347197,
+  <%= paybox_hidden_fields :site => "0983383", :rang => "01", :identifiant => "527347197",
     :paybox => paybox_url,
     :backup1 => paybox_url,
-    :total => "100",
+    :total => registration.amount,
     :devise => 978,
     :cmd => registration.id,
-    :porteur => "andrea.damico@gmail.com",
+    :porteur => registration.email,
     :langue => "GBR",
     :repondre_a => refinery.payment_callback_url,
     :retour => "amount:M;registration:R;autorization:A;date:W;heure:Q;transaction:T;error:E;sign:K",
