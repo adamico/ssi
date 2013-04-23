@@ -4,9 +4,10 @@ Thank you for registering to the <%= @school.title %>.
 
 Please verify the details you provided with your inscription :
 
-Surname : <%= @registration.surname %>
-First name : <%= @registration.try(:first_name) %>
+Participant details
 Title : <%= @registration.try(:title) %>
+Last name : <%= @registration.surname %>
+First name : <%= @registration.try(:first_name) %>
 Company : <%= @registration.try(:company) %>
 Address : <%= @registration.try(:address) %>
 City : <%= @registration.try(:city) %>
@@ -15,11 +16,20 @@ Country : <%= @registration.try(:country) %>
 Phone : <%= @registration.try(:phone) %>
 Fax : <%= @registration.try(:fax) %>
 Email : <%= @registration.try(:email) %>
-Arrival : <%= l @registration.arrival, :format => :long %>
-Departure : <%= l @registration.departure, :format => :long %>
-Accompanying person : <%= @registration.try(:accompagne) %>
-Payment by : <%= @registration.payment %>
-Amount payed : <%= @registration.formatted_amount %>
+Special dietary request : <%= @registration.dietary_requests %>
+
+<% if @registration.accompagne == "Yes" %>
+Accompanying person details
+Title : <%= @registration.try(:accompagne_title) %>
+Last name : <%= @registration.try(:accompagne_last_name) %>
+First name : <%= @registration.try(:accompagne_first_name) %>
+Country : <%= @registration.try(:accompagne_country) %>
+Special dietary request : <%= @registration.dietary_requests("accompagne_") %>
+<% end %>
+
+Payment details
+Payment method : <%= @registration.payment %>
+Total amount : <%= @registration.formatted_amount %>
 
 If any of these informations are incorrect, please send us an email to: contact@school-immunotoxicology.org.
 
