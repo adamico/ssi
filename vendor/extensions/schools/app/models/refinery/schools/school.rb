@@ -45,10 +45,6 @@ module Refinery
         Date.today <= early_bird_date ? early_bird_price : price
       end
 
-      def price_without_vat(the_price)
-        (the_price / 100 / 1.196).round(2)
-      end
-
       def formatted_price(price_method)
         (self.send(price_method) / 100).to_s + " €"
       end
