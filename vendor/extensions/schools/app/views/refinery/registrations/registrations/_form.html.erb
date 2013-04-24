@@ -67,14 +67,14 @@
 
   <div class="accompanying-fields" style="display: none;">
     <div class="control-group">
-      <%= f.label :title, "Companion name", class: "control-label" %>
+      <%= f.label :title, "Name", class: "control-label" %>
       <div class="controls controls-row">
         <%= f.text_field :accompagne_title, :placeholder => "Title", class: "span2" %>
         <%= f.text_field :accompagne_last_name, :placeholder => "Last", class: "span2" %>
         <%= f.text_field :accompagne_first_name, :placeholder => "First", class: "span2" %>
       </div>
     </div>
-    <%= f.input :accompagne_country, label: "Companion country", input_html: {class: "span6"} %>
+    <%= f.input :accompagne_country, label: "Country", input_html: {class: "span6"} %>
     <div class="control-group">
       <%= f.label "Special dietary request", class: "control-label" %>
       <div class="controls">
@@ -94,7 +94,7 @@
   </div>
 
   <h4>Registration fee (registration will be accepted on a first come first served basis)</h4>
-  <table class="table table-condensed">
+  <table class="table table-condensed fees">
     <tr>
       <th>Category</th><th>Early registration (by <%= l @school.early_bird_date, format: :long %>)</th><th>Late registration (by <%= l @school.deadline, format: :long %>)</th>
     </tr>
@@ -124,8 +124,12 @@
   </div>
 
   <%= f.input :payment, label: "Payment by", collection: ::Refinery::Registrations::Registration::PAYMENT_METHODS, wrapper_html: {id: "payment-wrap"}%>
-  <%= f.input :humanizer_answer, label: registration.humanizer_question, input_html: {:placeholder => "Enter the answer here"} %>
-  <%= f.input :humanizer_question_id, as: :hidden %>
+  <br>
+  <% if f.object.new_record? %>
+    <p>For security reasons, please answer the following question :</p>
+    <%= f.input :humanizer_answer, label: registration.humanizer_question, input_html: {:placeholder => "Enter the answer here"} %>
+    <%= f.input :humanizer_question_id, as: :hidden %>
+  <% end -%>
   <div class= "form-actions">
     <%= button_tag type: :submit, class: "btn btn-success" do -%>
       <i class="icon-white icon-ok"></i>
