@@ -1,7 +1,8 @@
 <p>You've chosen the <strong>online payment method</strong>. By pressing the button below, you'll be redirected to our secure online payment system.</p>
 
-<% paybox_url = "https://tpeweb.paybox.com/cgi/MYchoix_pagepaiement.cgi" %>
-<form method="POST" action="<%= paybox_url %>">
+<% paybox_url_prefix = Rails.env.production? ? "" : "preprod-" %>
+
+<form method="POST" action="https://<%= paybox_url_prefix %>tpeweb.paybox.com/cgi/MYchoix_pagepaiement.cgi">
   <%= paybox_hidden_fields :site => ENV["PBX_SITE"], :rang => ENV["PBX_RANG"], :identifiant => ENV["PBX_IDENTIFIANT"],
     :total => registration.amount,
     :devise => 978,
