@@ -2,9 +2,9 @@ Dear <%= @title %>,
 
 Thank you for registering to the <%= @school.title %>.
 
-Please verify the details you provided with your inscription :
+Please verify the detail you provided with your inscription :
 
-Participant details
+Participant details:
 Title : <%= @registration.try(:title) %>
 Last name : <%= @registration.surname %>
 First name : <%= @registration.try(:first_name) %>
@@ -14,12 +14,11 @@ City : <%= @registration.try(:city) %>
 Zip : <%= @registration.try(:zip) %>
 Country : <%= @registration.try(:country) %>
 Phone : <%= @registration.try(:phone) %>
-Fax : <%= @registration.try(:fax) %>
 Email : <%= @registration.try(:email) %>
 Special dietary request : <%= @registration.dietary_requests %>
 
 <% if @registration.accompagne == "Yes" %>
-Accompanying person details
+Accompanying person details:
 Title : <%= @registration.try(:accompagne_title) %>
 Last name : <%= @registration.try(:accompagne_last_name) %>
 First name : <%= @registration.try(:accompagne_first_name) %>
@@ -31,6 +30,8 @@ Payment details
 Payment method : <%= @registration.payment %>
 Total amount : <%= @registration.formatted_amount %>
 
-If any of these informations are incorrect, please send us an email to: contact@school-immunotoxicology.org.
+If any of these informations are incorrect, please feel free to send us an email with the necessary corrections to: contact@school-immunotoxicology.org.
 
 Have a nice day and see you soon at the <%= @school.title %>, on <%= l @school.starts_at, :format => :long %>.
+
+Summerschool in Immunotoxicology Team.
