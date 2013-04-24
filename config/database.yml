@@ -17,10 +17,6 @@ login: &login
   encoding: unicode
   pool: 5
 
-staging: &staging
-  database: ssi_staging
-  <<: *login
-
 development: &development
   database: ssi_development
   <<: *login
