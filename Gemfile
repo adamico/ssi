@@ -56,7 +56,7 @@ gem 'refinerycms-schools', :path => 'vendor/extensions'
 gem 'humanizer'
 gem 'simple_form'
 gem 'country_select'
-gem "paybox_system"
+gem "paybox_system", github: "adamico/paybox_system"
 gem "fog"
 gem "prawn"
 
