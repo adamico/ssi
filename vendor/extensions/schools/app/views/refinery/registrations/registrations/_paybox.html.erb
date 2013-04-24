@@ -2,9 +2,7 @@
 
 <% paybox_url = "https://preprod-tpeweb.paybox.com/cgi/MYchoix_pagepaiement.cgi" %>
 <form method="POST" action="<%= paybox_url %>">
-  <%= paybox_hidden_fields :site => "0983383", :rang => "01", :identifiant => "527347197",
-    :paybox => paybox_url,
-    :backup1 => paybox_url,
+  <%= paybox_hidden_fields :site => ENV["PBX_SITE"], :rang => ENV["PBX_RANG"], :identifiant => ENV["PBX_IDENTIFIANT"],
     :total => registration.amount,
     :devise => 978,
     :cmd => registration.id,
