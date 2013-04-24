@@ -1,5 +1,6 @@
-PATH
-  remote: ../paybox_system
+GIT
+  remote: git://github.com/adamico/paybox_system.git
+  revision: 37cac614ec7c4b4f8396ef57b7616b4c54f111ce
   specs:
     paybox_system (1.0.0)
       rack
