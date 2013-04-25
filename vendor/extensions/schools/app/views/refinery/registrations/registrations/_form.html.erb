@@ -1,8 +1,10 @@
-<section>
-  <h4 class="title"><%= school.title %></h4>
-  <h4 class="theme"><%= school.theme %></h4>
-</section>
 <section class="top-mailing">
+</section>
+
+<section>
+  <h4 class="title">Welcome to the <%= school.title %></h4>
+  <h4 class="theme"><%= school.theme %></h4>
+  <h5 class='school_when_where'><%= @school.when_and_where %></h3>
 </section>
 
 <%= simple_form_for [refinery, :registrations, registration], html: {class: "form-horizontal registration"} do |f| %>
