@@ -2,16 +2,7 @@
   <h4 class="title"><%= school.title %></h4>
   <h4 class="theme"><%= school.theme %></h4>
 </section>
-<section>
-  <% unless Rails.env.development? %>
-  <div class="vignette_and_gmaps">
-    <%= image_fu school.vignlieu, "128x128" %>
-    <% require 'uri'
-      location = URI.escape(school.location)
-    %>
-    <%= link_to image_tag("http://maps.google.com/maps/api/staticmap?size=128x128&sensor=false&zoom=15&markers=#{school.latitude}%2C#{school.longitude}"), "http://maps.google.com/maps?q=#{location}&z=14", :target => "_blank" %>
-  </div>
-  <% end -%>
+<section class="top-mailing">
 </section>
 
 <%= simple_form_for [refinery, :registrations, registration], html: {class: "form-horizontal registration"} do |f| %>
