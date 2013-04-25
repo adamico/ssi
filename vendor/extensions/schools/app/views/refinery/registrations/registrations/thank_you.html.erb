@@ -6,8 +6,8 @@
   <% case @registration.payment
     when "check" -%>
     <%= render 'check', registration: @registration %>
-  <% when "bank_transfer" -%>
-    <%= render 'bank_transfer', registration: @registration %>
+  <% when "bank" -%>
+    <%= render 'bank', registration: @registration %>
   <% when "invited" -%>
     <%= render "invited", registration: @registration %>
   <% else %>

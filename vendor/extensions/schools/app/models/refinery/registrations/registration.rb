@@ -38,7 +38,7 @@ module Refinery
       end
 
 
-      PAYMENT_METHODS = %w(bank_transfer check online invited)
+      PAYMENT_METHODS = [["Bank Transfer", :bank], ["Check", :check], ["Credit Card", :online]]
 
       STATES = %w(pending payed refunded)
 
