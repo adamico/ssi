@@ -2,19 +2,14 @@
 </section>
 
 <section>
+  <br>
   <h4 class="title">Welcome to the <%= school.title %></h4>
   <h4 class="theme"><%= school.theme %></h4>
-  <h5 class='school_when_where'><%= @school.when_and_where %></h3>
+  <h5 class='school_when_where'><%= @school.when_and_where.html_safe %></h3>
 </section>
 
 <%= simple_form_for [refinery, :registrations, registration], html: {class: "form-horizontal registration"} do |f| %>
   <%= f.error_notification %>
-  <div class="form-actions">
-    <%= link_to "#", class: "btn btn-info", id: "invited-speaker" do -%>
-      <i class="icon-white icon-gift"></i>
-      Click here if you are an invited speaker
-    <% end -%>
-  </div>
 
   <%= f.input :school_id, as: :hidden %>
   <div class="control-group">
@@ -56,6 +51,7 @@
     </div>
   </div>
 
+  <%= f.input :invited, label: "Are you an invited speaker ?", as: :radio_buttons, collection: %w(Yes No), item_wrapper_class: "inline" %>
   <%= f.input :accompagne, label: "Are you accompanied ?", as: :radio_buttons, collection: %w(Yes No), item_wrapper_class: "inline" %>
 
   <div class="accompanying-fields" style="display: none;">
@@ -103,7 +99,7 @@
     <em>Accompanying person fee includes accommodation and all meals, social events and gala dinner.</em>
   </p>
 
-  <%= f.input :amount, as: :hidden, input_html: { value: @school.current_price, disabled: true } %>
+  <%= f.input :amount, as: :hidden, input_html: { value: @school.current_price } %>
   <%= f.input :accompanying_amount, as: :hidden, input_html: {value: @school.accompagne_price, disabled: true} %>
 
   <div class="control-group">
@@ -116,7 +112,7 @@
     </div>
   </div>
 
-  <%= f.input :payment, label: "Payment by", collection: ::Refinery::Registrations::Registration::PAYMENT_METHODS, wrapper_html: {id: "payment-wrap"}%>
+  <%= f.input :payment, label: "Payment by", collection: ::Refinery::Registrations::Registration::PAYMENT_METHODS, wrapper_html: {class: "payment-wrap"}%>
   <br>
   <% if f.object.new_record? %>
     <p>For security reasons, please answer the following question :</p>

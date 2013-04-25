@@ -3,18 +3,6 @@ $ = jQuery
 $ ->
   $(".nav-tabs a:first").tab('show')
 
-  #for field in ["arrival", "departure"]
-    #$field = $("#registration_#{field}")
-    #$field.mask("99/99/9999")
-    #pre_value = $field.attr("data-pre")
-    #$field.val(pre_value)
-
-  make_invited($("#invited-speaker")) if $("#registration_payment").val() is "invited"
-
-  $("#invited-speaker").on "click", (event) ->
-    event.preventDefault()
-    make_invited($(this))
-
   $accompagne_dietary_other_field = $("#registration_accompagne_dietary_other")
   showNextif $accompagne_dietary_other_field.attr("checked") is "checked", $accompagne_dietary_other_field, $accompagne_dietary_other_field.parent().next()
 
@@ -33,12 +21,21 @@ $ ->
   accompagne_radio_checked = $accompagne_radio.attr("checked") is "checked"
   showNextif accompagne_radio_checked, $accompagne_radio, $(".accompanying-fields")
 
-  calculate_total_amount(accompagne_radio_checked)
+  calculate_total_amount(check_if_accompanied(), check_if_invited())
+
+  $("[name='registration[invited]']").change ->
+    invited = if @value is "Yes" then true else false
+    accompanied = check_if_accompanied()
+    console.log "invited = #{invited}"
+    console.log "accompanied = #{accompanied}"
+    calculate_total_amount(accompanied, invited)
 
   $("[name='registration[accompagne]']").change ->
-    addAccompanyingPrice = false
-    addAccompanyingPrice = true if @value is "Yes"
-    calculate_total_amount(addAccompanyingPrice)
+    invited = check_if_invited()
+    accompanied = if @value is "Yes" then true else false
+    console.log "invited = #{invited}"
+    console.log "accompanied = #{accompanied}"
+    calculate_total_amount(accompanied, invited)
     $next = $(".accompanying-fields")
     condition = @value is "Yes"
     showNextif condition, $(@), $next
@@ -46,21 +43,26 @@ $ ->
       $("#registration_accompagne_#{suffix}").val("") for suffix in ["title", "last_name", "first_name", "country", "other_what"]
       $("#registration_accompagne_#{suffix}").attr("checked", false) for suffix in ["vegetarian", "muslim", "kosher", "dietary_other"]
 
-calculate_total_amount = (check=false)->
-  participant_amount = parseInt $("#registration_amount").val()
-  accompanying_amount = if check then parseInt($("#registration_accompanying_amount").val()) else 0
+check_if_accompanied = ->
+  $("#registration_accompagne_yes").attr("checked") is "checked"
+
+check_if_invited = ->
+  $("#registration_invited_yes").attr("checked") is "checked"
+
+calculate_total_amount = (accompanied=false,invited=false)->
+  participant_amount = if invited then 0 else parseInt($("#registration_amount").val())
+  accompanying_amount = if accompanied then parseInt($("#registration_accompanying_amount").val()) else 0
   total_amount = participant_amount + accompanying_amount
   formatted_total_amount = (total_amount / 100).toString() + " €"
   no_vat_total_amount = Math.round(total_amount / 100 / 1.196)
+  $("#registration_amount").val(total_amount)
   $(".total-amount").html(formatted_total_amount)
   $(".total-amount-without-vat").html(no_vat_total_amount.toString() + " € + VAT 19.6%")
-
-make_invited = (element) ->
-  $(element).hide()
-  $("#payment-wrap").remove()
-  invited = $('<input type="hidden" class="hidden" name="registration[payment]" id="registration_payment" />')
-  invited.val("invited")
-  $(invited).appendTo("form.registration")
+  if total_amount is 0
+    $(".payment-wrap").hide()
+    $("#registration_payment").val("")
+  else
+    $(".payment-wrap").show()
 
 showNextif = (condition, element, next) ->
   if condition

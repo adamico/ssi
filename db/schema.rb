@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130422114938) do
+ActiveRecord::Schema.define(:version => 20130425113413) do
 
   create_table "refinery_events", :force => true do |t|
     t.string   "title"
@@ -179,6 +179,7 @@ ActiveRecord::Schema.define(:version => 20130422114938) do
     t.boolean  "accompagne_kosher"
     t.boolean  "accompagne_dietary_other"
     t.string   "accompagne_dietary_what"
+    t.string   "invited"
   end
 
   create_table "refinery_resources", :force => true do |t|
