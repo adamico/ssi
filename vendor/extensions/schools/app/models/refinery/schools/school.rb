@@ -53,9 +53,9 @@ module Refinery
         if cancelled?
           "CANCELED"
         elsif announced?
-          month_and_year + " #{place}"
+          month_and_year + "#{place}"
         else
-          period + " (#{place})"
+          period + "<br> (#{place})"
         end
       end
 

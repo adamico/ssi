@@ -4,8 +4,8 @@
       <article id="next_school">
         <% if @school -%>
           <h3 class='title'><%= link_to @school.title, program_path %></h3>
-          <h3 class='theme'><%= @school.theme %></h3>
-          <h3 class='school_when_where'><%= @school.when_and_where %></h3>
+          <h4 class='theme' style="letter-spacing: 1px;"><%= @school.theme %></h4>
+          <h5 class='school_when_where'><%= @school.when_and_where.html_safe %></h5>
         <% else -%>
           <h2>No school registered in database, yet.</h2>
         <% end -%>
