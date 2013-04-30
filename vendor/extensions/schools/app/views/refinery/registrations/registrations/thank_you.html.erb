@@ -3,18 +3,14 @@
   <p>You will shortly receive an email with the details you provided which you are kindly invited to verify. Please inform us of any corrections you want to make.</p>
   <%= raw @school.extranight %>
   <p>This registration has been filed with the <strong>number #<%= @registration.id %></strong>.</p>
-  <% if @registration.amount > 0 %>
-    <p>Your registration fees amount to <strong><%= @registration.amount / 100 %> €</strong>.<br>To finalize the registration process you have to provide a valid payment means.</p>
-    <% case @registration.payment
-    when "check" -%>
-      <%= render 'check', registration: @registration %>
-    <% when "bank" -%>
-      <%= render 'bank', registration: @registration %>
-    <% else %>
-      <%= render 'paybox', registration: @registration %>
-    <% end -%>
+  <p>Your registration fees amount to <strong><%= @registration.amount / 100 %> €</strong>.<br>To finalize the registration process you have to provide a valid payment means.</p>
+  <% case @registration.payment
+  when "check" -%>
+    <%= render 'check', registration: @registration %>
+  <% when "bank" -%>
+    <%= render 'bank', registration: @registration %>
   <% else %>
-    <%= render 'invited', registration: @registration %>
+    <%= render 'paybox', registration: @registration %>
   <% end -%>
   <hr>
   <p>Have a nice day and see you soon!</p>

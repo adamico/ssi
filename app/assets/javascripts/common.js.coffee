@@ -21,21 +21,11 @@ $ ->
   accompagne_radio_checked = $accompagne_radio.attr("checked") is "checked"
   showNextif accompagne_radio_checked, $accompagne_radio, $(".accompanying-fields")
 
-  calculate_total_amount(check_if_accompanied(), check_if_invited())
-
-  $("[name='registration[invited]']").change ->
-    invited = if @value is "Yes" then true else false
-    accompanied = check_if_accompanied()
-    console.log "invited = #{invited}"
-    console.log "accompanied = #{accompanied}"
-    calculate_total_amount(accompanied, invited)
+  calculate_total_amount(check_if_accompanied())
 
   $("[name='registration[accompagne]']").change ->
-    invited = check_if_invited()
     accompanied = if @value is "Yes" then true else false
-    console.log "invited = #{invited}"
-    console.log "accompanied = #{accompanied}"
-    calculate_total_amount(accompanied, invited)
+    calculate_total_amount(accompanied)
     $next = $(".accompanying-fields")
     condition = @value is "Yes"
     showNextif condition, $(@), $next
@@ -46,11 +36,8 @@ $ ->
 check_if_accompanied = ->
   $("#registration_accompagne_yes").attr("checked") is "checked"
 
-check_if_invited = ->
-  $("#registration_invited_yes").attr("checked") is "checked"
-
 calculate_total_amount = (accompanied=false,invited=false)->
-  participant_amount = if invited then 0 else parseInt($("#registration_amount").val())
+  participant_amount = parseInt($("#registration_amount").val())
   accompanying_amount = if accompanied then parseInt($("#registration_accompanying_amount").val()) else 0
   total_amount = participant_amount + accompanying_amount
   formatted_total_amount = (total_amount / 100).toString() + " €"
@@ -58,11 +45,6 @@ calculate_total_amount = (accompanied=false,invited=false)->
   $("#registration_amount").val(total_amount)
   $(".total-amount").html(formatted_total_amount)
   $(".total-amount-without-vat").html(no_vat_total_amount.toString() + " € + VAT 19.6%")
-  if total_amount is 0
-    $(".payment-wrap").hide()
-    $("#registration_payment").val("")
-  else
-    $(".payment-wrap").show()
 
 showNextif = (condition, element, next) ->
   if condition
