@@ -53,9 +53,9 @@ module Refinery
         if cancelled?
           "CANCELED"
         elsif announced?
-          month_and_year + "#{place}"
+          period + "#{the_place}"
         else
-          period + "<br> (#{place})"
+          period + the_place
         end
       end
 
@@ -69,6 +69,10 @@ module Refinery
         else
           "#{starts_at.day} #{starts_at.strftime'%B'} - #{ends_at.day} #{ends_at.strftime'%B'} #{starts_at.year}"
         end
+      end
+
+      def the_place
+        "<br> " + [location, place].compact.join(", ")
       end
 
       # state machines
