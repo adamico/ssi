@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/adamico/paybox_system.git
-  revision: 37cac614ec7c4b4f8396ef57b7616b4c54f111ce
+  revision: 2a7bfa0ad801fc8710e462aaa188b138ff6fd67a
   specs:
     paybox_system (1.0.0)
       rack
