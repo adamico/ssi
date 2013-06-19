@@ -3,7 +3,7 @@ module Refinery
     class PayboxController < ::ApplicationController
       include Paybox::System::Rails::Integrity
       before_filter :find_registration
-      before_filter :check_paybox_integrity!
+      #before_filter :check_paybox_integrity!
 
       def ipn
         if params[:error] == "00000"
