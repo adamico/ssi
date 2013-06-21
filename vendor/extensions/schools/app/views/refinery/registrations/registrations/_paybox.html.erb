@@ -2,7 +2,7 @@
 
 <% paybox_url_prefix = Rails.env.production? ? "" : "preprod-" %>
 
-<form method="POST" action="https://<%= paybox_url_prefix %>tpeweb.paybox.com/cgi/MYchoix_pagepaiement.cgi">
+<form method="POST" action="https://<%= paybox_url_prefix %>tpeweb1.paybox.com/cgi/MYchoix_pagepaiement.cgi">
   <%= paybox_hidden_fields :site => ENV["PBX_SITE"], :rang => ENV["PBX_RANG"], :identifiant => ENV["PBX_IDENTIFIANT"],
     :total => registration.amount,
     :devise => 978,
