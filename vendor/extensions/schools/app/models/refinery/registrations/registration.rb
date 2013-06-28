@@ -16,7 +16,7 @@ module Refinery
       validates :surname, presence: true
       validates :company, presence: true
       validates :phone, presence: true
-      validates :email, presence: true
+      validates :email, presence: true, uniqueness: {scope: :school_id}
 
       belongs_to :school, :class_name => '::Refinery::Schools::School'
 
