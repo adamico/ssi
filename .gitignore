@@ -94,3 +94,4 @@ vendor/ruby/*
 vendor/extensions/*/vendor/ruby/*
 
 *.dump
+.secret
