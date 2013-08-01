@@ -30,7 +30,11 @@ Payment details
 Payment method : <%= @registration.payment %>
 Total amount : <%= @registration.formatted_amount %>
 
-If any of these informations are incorrect, please feel free to send us an email with the necessary corrections to: contact@school-immunotoxicology.org.
+<% if @registration.payed? %>
+  If any of these informations are incorrect, please feel free to send us an email with the necessary corrections to: contact@school-immunotoxicology.org.
+<% else %>
+  As long as the payment is not finalised you can still change your registration details including your payment means by following this link : <%= refinery.edit_registrations_registration_url(@registration, host: "school-immunotoxicology.org") %>
+<% end %>
 
 Have a nice day and see you soon at the <%= @school.title %>, on <%= l @school.starts_at, :format => :long %>.
 
