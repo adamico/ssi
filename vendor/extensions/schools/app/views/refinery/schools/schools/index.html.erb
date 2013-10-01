@@ -5,7 +5,7 @@
       <% @schools.each do |school| %>
         <div class="school">
           <div class="title"><%= school.title %></div>
-          <div class="when_and_where"><%= school.when_and_where %></div>
+          <div class="when_and_where"><%= school.when_and_where.html_safe %></div>
           <div class="theme"><%= school.theme %></div>
           <div class="publications"><%= raw school.publication %></div>
         </div>

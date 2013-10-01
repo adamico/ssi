@@ -26,7 +26,11 @@ module Refinery
       end
 
       def self.imminent_or_next
-        self.next || self.imminent
+        self.next || self.imminent || self.latest
+      end
+
+      def self.latest
+        self.previous.last
       end
 
       def self.imminent
