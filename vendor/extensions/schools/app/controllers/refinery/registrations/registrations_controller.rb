@@ -7,7 +7,7 @@ module Refinery
       helper_method :parsed_departure
 
       def new
-        @registration = ::Refinery::Registrations::Registration.new(school_id: @school.id) if @school
+        @registration = ::Refinery::Registrations::Registration.new(school_id: @school.id)
       end
 
       def create
@@ -46,7 +46,7 @@ module Refinery
       end
 
       def find_next_school
-        @school = ::Refinery::Schools::School.try(:imminent_or_next)
+        @school = ::Refinery::Schools::School.last
       end
 
       def find_page

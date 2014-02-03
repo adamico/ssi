@@ -4,21 +4,25 @@
 
 <% content_for :body do %>
   <div class='registrations'>
-  <% if @school.active? -%>
+  <% if @school.active? %>
     <%= render 'form', registration: @registration, school: @school %>
-  <% elsif @school.imminent? -%>
-    <% if @school.intro_registration %>
-      <%= raw @school.intro_registration %>
-    <% else %>
-      <h3>Registrations are not yet open.</h2>
-    <% end -%>
-  <% end -%>
-  <% last_school = ::Refinery::Schools::School.latest %>
-  <% if last_school.cancelled? -%>
-    <h3>Registrations for the <%= last_school.title %> are closed since this summerschool has been cancelled. See you next year!</h2>
   <% else %>
-    <h3>Registrations for the <%= link_to last_school.title, "/program" %> are closed.</h2>
-  <% end -%>
+    <% if @school.closed? || @school.cancelled? %>
+      <h3>
+        <% if last_school.cancelled? -%>
+          Registrations for the <%= @school.title %> are closed since this summerschool has been cancelled. See you next year!
+        <% else %>
+          Registrations for the <%= @school.title %> are closed.
+        <% end -%>
+      </h3>
+    <% else %>
+      <% if @school.intro_registration.present? %>
+        <%= raw @school.intro_registration %>
+      <% else %>
+        <h3>Registrations are not yet open.</h3>
+      <% end -%>
+    <% end -%>
+  <% end %>
   </div>
 <% end %>
 
