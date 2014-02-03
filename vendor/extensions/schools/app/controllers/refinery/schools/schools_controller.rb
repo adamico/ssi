@@ -12,7 +12,7 @@ module Refinery
       end
 
       def show
-        @school = School.imminent_or_next
+        @school = School.last
         if @school
           events = @school.events.order(:starts_at)
           @events_days = events.group_by { |event| event.starts_at.beginning_of_day }

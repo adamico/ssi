@@ -1,63 +1,59 @@
 <% content_for :body do %>
-  <% if @school -%>
-    <section id="school_title">
-      <h1><%= @school.title %></h1>
-    </section>
-    <section id="school_theme">
-      <h3><%= @school.theme %></h3>
-      <%= @school.sub_theme %>
-    </section>
-    <section>
-      <h4><%= @school.when_and_where.html_safe %></h4>
-    </section>
-    <section>
-      <%= @school.organiser %>
-      <%= @school.sub_organizer %>
-    </section>
-    <section>
-      <%=raw @school.award %>
-    </section>
-    <section>
-      <%=raw @school.intro_program %>
-    </section>
-    <section>
-      <%=raw @school.publication %>
-    </section>
+  <section id="school_title">
+    <h1><%= @school.title %></h1>
+  </section>
+  <section id="school_theme">
+    <h3><%= @school.theme %></h3>
+    <%= @school.sub_theme %>
+  </section>
+  <section>
+    <h4><%= @school.when_and_where.html_safe %></h4>
+  </section>
+  <section>
+    <%= @school.organiser %>
+    <%= @school.sub_organizer %>
+  </section>
+  <section>
+    <%=raw @school.award %>
+  </section>
+  <section>
+    <%=raw @school.intro_program %>
+  </section>
+  <section>
+    <%=raw @school.publication %>
+  </section>
+  <% if @events_days.any? -%>
     <div class="tabbable" id="programme">
-      <% if @events_days.any? -%>
-        <ul class="nav nav-tabs">
-          <% @events_days.each do |day, events| -%>
-            <li><%= link_to day.strftime("%A %e"), "#programme-#{day.day}", :"data-toggle" => "tab" %></li>
-          <% end -%>
-        </ul>
-        <div class="tab-content">
-          <% @events_days.each do |day, events| -%>
-            <div class="tab-pane" id="programme-<%= day.day %>">
-              <div class="events">
-                <% events.each do |event| -%>
-                  <div class="line">
-                    <div class="event when"><%= event.time %></div>
-                    <div class="event gutter"> - </div>
-                    <div class="event title_and_speaker">
-                      <span class="title"><%= raw event.title %></span>
-                      <% unless event.speaker.blank? %>
-                        <span class="speaker"><%= event.speaker %></span>
-                      <% end %>
-                    </div>
+      <ul class="nav nav-tabs">
+        <% @events_days.each do |day, events| -%>
+          <li><%= link_to day.strftime("%A %e"), "#programme-#{day.day}", :"data-toggle" => "tab" %></li>
+        <% end -%>
+      </ul>
+      <div class="tab-content">
+        <% @events_days.each do |day, events| -%>
+          <div class="tab-pane" id="programme-<%= day.day %>">
+            <div class="events">
+              <% events.each do |event| -%>
+                <div class="line">
+                  <div class="event when"><%= event.time %></div>
+                  <div class="event gutter"> - </div>
+                  <div class="event title_and_speaker">
+                    <span class="title"><%= raw event.title %></span>
+                    <% unless event.speaker.blank? %>
+                      <span class="speaker"><%= event.speaker %></span>
+                    <% end %>
                   </div>
-                <% end -%>
-              </div>
+                </div>
+              <% end -%>
             </div>
-          <% end -%>
-        </div>
-      <% else %>
-        No programmed events yet.
-      <% end -%>
+          </div>
+        <% end -%>
+      </div>
     </div>
     <p id="print_program"><%= link_to "Printable Program", refinery.schools_school_path(@school, format: "pdf") %></p>
   <% else %>
-    Coming soon.
-  <% end %>
+    No programmed events yet.
+  <% end -%>
 <% end -%>
 
 <%= render '/refinery/content_page' %>

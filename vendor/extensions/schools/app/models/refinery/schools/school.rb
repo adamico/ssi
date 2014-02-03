@@ -26,7 +26,7 @@ module Refinery
       end
 
       def self.imminent_or_next
-        self.next || self.imminent || self.latest
+        self.next || self.imminent
       end
 
       def self.latest
@@ -57,7 +57,7 @@ module Refinery
         if cancelled?
           "CANCELED"
         elsif announced?
-          period + "#{the_place}"
+          month_and_year + "#{the_place}"
         else
           period + the_place
         end
