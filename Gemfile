@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '1.9.3'
+ruby '2.1.0'
 gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
@@ -62,7 +62,7 @@ gem "fog"
 gem "prawn"
 
 gem 'refinerycms-links', :path => 'vendor/extensions'
-gem 'newrelic_rpm', "~> 3.5.3.25"
+gem 'newrelic_rpm', '~> 3.7.1'
 gem 'thin'
 
 group :development do
